@@ -3,6 +3,7 @@ package me.mpasa
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
+import controllers.articles.ShowArticle
 import controllers.{Home, SiteMap}
 
 object Router {
@@ -16,6 +17,11 @@ object Router {
     path("") {
       get {
         Ok(Home.apply)
+      }
+    },
+    path("articles" / Remaining) { permalink =>
+      get {
+        ShowArticle(permalink)
       }
     },
     path("sitemap.xml") {

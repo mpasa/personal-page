@@ -1,0 +1,18 @@
+package templates
+
+import scalatags.Text.TypedTag
+import scalatags.Text.all._
+
+/** All pages with header */
+object PageT {
+  def apply(options: LayoutOptions)(content: TypedTag[String]*): TypedTag[String] = {
+    val optionsWithCommonCSS = options.copy(css = options.css :+ "common")
+    LayoutT(optionsWithCommonCSS)(
+      div(
+        HeaderT.apply,
+        content
+      )
+    )
+  }
+}
+
