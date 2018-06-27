@@ -1,9 +1,16 @@
+@require "aux"
+
 body {
   font-family 'Open Sans', sans-serif
 }
 
 a {
   color brand-color
+  text-decoration none
+  font-weight bold
+  &:visited {
+    color brand-color
+  }
 }
 
 // Header
