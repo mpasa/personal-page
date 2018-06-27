@@ -3,7 +3,7 @@ package me.mpasa
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
-import controllers.Home
+import controllers.{Home, SiteMap}
 
 object Router {
 
@@ -16,6 +16,11 @@ object Router {
     path("") {
       get {
         Ok(Home.apply)
+      }
+    },
+    path("sitemap.xml") {
+      get {
+        SiteMap.apply
       }
     },
     pathPrefix("assets") {
