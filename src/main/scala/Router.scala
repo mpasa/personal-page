@@ -29,7 +29,7 @@ object Router {
         SiteMap.apply
       }
     },
-    path("about-me") {
+    path("about-me-test") {
       get {
         Ok(AboutMe.apply)
       }

@@ -22,6 +22,8 @@ lazy val projectDependencies = Seq(
   "com.atlassian.commonmark" %  "commonmark"                        % COMMONMARK_VERSION,
   "com.atlassian.commonmark" %  "commonmark-ext-gfm-tables"         % COMMONMARK_VERSION,
   "com.atlassian.commonmark" %  "commonmark-ext-yaml-front-matter"  % COMMONMARK_VERSION,
+  // Utils
+  "org.typelevel"            %% "mouse"                             % "0.17",
   // Testing
   "org.scalatest"            %% "scalatest"                         % "3.0.1" % "test"
 )
