@@ -2,6 +2,7 @@ lazy val root = (project in file("."))
   .settings(projectSettings: _*)
   .settings(libraryDependencies ++= projectDependencies)
   .settings(scalacOptions ++= advanceScalacOptions)
+  .enablePlugins(JavaAppPackaging)
 
 lazy val projectSettings = Seq(
   name := "mpasa",

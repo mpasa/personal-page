@@ -1,4 +1,4 @@
-package templates
+package templates.components
 
 import scalatags.Text.all._
 import scalatags.Text.{TypedTag, tags2}
@@ -25,7 +25,7 @@ object LayoutT {
       options.css.map { css =>
         link(rel := "stylesheet", href := s"/assets/styles/${css}.css")
       },
-      link(rel := "stylesheet", href := "https://fonts.googleapis.com/css?family=Open+Sans"),
+      link(rel := "stylesheet", href := "https://fonts.googleapis.com/css?family=Noto+Sans,Raleway"),
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.0.13/css/all.css"),
       // KaTex CDN
       link(rel := "stylesheet", href := "https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"),
@@ -37,7 +37,7 @@ object LayoutT {
       script(src := "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"),
       // Font Awesome
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.1.0/css/all.css"),
-      tags2.title(options.title),
+      tags2.title(options.fullTitle),
       analytics
     ),
     body(

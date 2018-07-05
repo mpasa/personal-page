@@ -1,20 +1,20 @@
 package controllers
 
-import scalatags.Text.TypedTag
-import scalatags.Text.all._
-import templates.{LayoutOptions, PageT}
+import akka.http.scaladsl.server.StandardRoute
+import me.mpasa.Ok
+import org.commonmark.node.Node
+import templates.AboutMeT
+import templates.components.LayoutOptions
 
 import scala.io.Source
 
 object AboutMe {
-  def apply: TypedTag[String] = {
-    val content = Source.fromResource("about.md").mkString
-    val document = Markdown.parser.parse(content)
-    val options = LayoutOptions("About me | Miguel Pérez Pasalodos", Seq("articles"))
-    val html = div(cls := "article")(
-      h1("About me"),
-      raw(Markdown.renderer.render(document))
-    )
-    PageT(options)(html)
+
+  /** Shows an "about me" page */
+  def apply: StandardRoute = {
+    val content = Source.fromResource("About.md").mkString
+    val document: Node = Markdown.parser.parse(content)
+    val options = LayoutOptions("About me", Seq("articles"))
+    Ok(AboutMeT(options, document))
   }
 }

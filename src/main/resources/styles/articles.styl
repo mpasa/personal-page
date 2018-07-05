@@ -1,23 +1,53 @@
+
 @require "aux"
 
-.article {
-  font-size: 17px;
-  line-height: 1.58;
-  letter-spacing: -.003em;
-  max-width: 700px;
-  margin: auto;
+/* Styles for the blog */
 
+.article {
+  margin auto
+  text-align justify
+
+  // Title
+  h1 {
+    margin-bottom 0.3em
+  }
+
+  // Metadata
+  .metadata {
+    font-size 0.9em
+
+    .publishedDate .icon {
+      color gray
+      margin-right 0.5em
+      color brand-color
+    }
+
+    .tags {
+      display inline-block
+      margin 0 10px
+
+      .tag {
+        font-style italic
+        padding 0.5em
+        background-color #f9f9f9
+        margin auto 0.1em
+      }
+    }
+  }
+
+  // Quotes
   blockquote {
     background-color #f7f7f7
     padding 1em
     border-left 1em solid brand-color
     margin 1em auto
+
+    p {
+      margin 0
+    }
   }
 
-  blockquote p {
-    margin 0
-  }
-
+  // Code
   :not(pre) code {
     color #c55f5f
     background #f8ecec
@@ -27,17 +57,6 @@
 
   pre code {
     font-size 0.9em
-  }
-
-  h1 {
-    margin-bottom: 3px;
-  }
-
-  .metadata .publishedDate .icon {
-    color gray
-    margin-right 0.5em
-    color brand-color
+    padding 0
   }
 }
-
-

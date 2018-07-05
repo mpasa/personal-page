@@ -3,9 +3,12 @@ package controllers
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
+import controllers.articles.Articles
+import me.mpasa.Router
 import scalatags.Text
 import scalatags.Text.all._
 
+/** Generates a sitemap with all the pages */
 object SiteMap {
 
   val DOMAIN = "https://mpasa.me"
@@ -20,9 +23,15 @@ object SiteMap {
   val loc = tag("loc")
 
   // Sequence of all URLs relative to the domain
-  private def urls: Seq[String] = Seq(
-    "" // Homepage
-  )
+  private val urls: Seq[String] = {
+    Seq("") ++                                    // Homepage
+    Seq(Router.Reverse.about) ++                  // About me
+    // Blog
+    Articles.all.map(Router.Reverse.article) ++   // Articles
+    Seq(Router.Reverse.archives) ++               // Archives
+    Seq(Router.Reverse.tags) ++                   // List of tags
+    Articles.allTags.map(Router.Reverse.tag)      // Tags
+  }
 
   /** Returns a sitemap given a list of all the urls */
   private def get(urls: Seq[String]): Text.TypedTag[String] = {

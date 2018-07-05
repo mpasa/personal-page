@@ -1,0 +1,45 @@
+
+/* Styles for social buttons */
+
+.social {
+  social-size = 1.1em
+  a {
+    border-radius 50%
+    display inline-block
+    width social-size*2
+    height social-size*2
+    line-height social-size*2
+    border 1px solid alpha(brand-color, 0.7)
+    margin auto 0.2em
+    font-size social-size
+    transition 0.3s
+    text-align center
+    background-color white
+
+    // On hover, transition to social network own color
+    &:hover {
+      color white
+    }
+
+    &.mail:hover {
+      color = #c17171
+      background-color color
+      border-color color
+    }
+    &.twitter:hover {
+      color = #1DA1F2
+      background-color color
+      border-color color
+    }
+    &.github:hover {
+      color = #333
+      background-color color
+      border-color color
+    }
+    &.linkedin:hover {
+      color =  #0077B5
+      background-color color
+      border-color color
+    }
+  }
+}

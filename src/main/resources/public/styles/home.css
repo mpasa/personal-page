@@ -1,1 +1,1 @@
-body{text-align:center;padding:5em}.social{margin:3em auto;}.social .icon{padding:0 .5em;font-size:1.6em}
+.center{text-align:center}.flex{display:flex;}.flex.spaceBetween{justify-content:space-between}

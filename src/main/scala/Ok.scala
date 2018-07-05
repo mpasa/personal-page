@@ -1,7 +1,7 @@
 
 package me.mpasa
 
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity, StatusCode, StatusCodes}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import scalatags.Text.TypedTag
@@ -10,10 +10,11 @@ import scalatags.Text.TypedTag
   * The response is always text/html
   */
 object Ok {
-  def apply(content: String): StandardRoute = {
+  def apply(status: StatusCode, content: String): StandardRoute = {
     val response = HttpEntity(ContentTypes.`text/html(UTF-8)`, content)
-    complete(response)
+    complete((status, response))
   }
 
-  def apply(content: TypedTag[String]): StandardRoute = apply("<!DOCTYPE html>" + content.render)
+  def apply(status: StatusCode, content: TypedTag[String]): StandardRoute = apply(status, "<!DOCTYPE html>" + content.render)
+  def apply(content: TypedTag[String]): StandardRoute = apply(StatusCodes.OK, content)
 }

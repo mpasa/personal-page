@@ -1,5 +1,8 @@
+
+/* Auxiliary styles, useful for all the pages */
+
 // Mobile
-static-width = 900px
+static-width = 800px
 mobile() {
   @media only screen and (max-width: static-width) {
     {block}
@@ -8,3 +11,20 @@ mobile() {
 
 // Colors
 brand-color = #005995
+font = 'Noto Sans'
+titleFont = 'Raleway'
+
+// Content
+.center {
+  text-align center
+}
+
+// Flex layouts
+.flex {
+  display flex
+
+  // Space between elements (first and last are at the limits of the parent)
+  &.spaceBetween {
+    justify-content space-between
+  }
+}
