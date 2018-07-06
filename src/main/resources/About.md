@@ -14,7 +14,7 @@ My first job was in the same University. I started giving support to manage a de
 
 ## Work experience
 
-A bit before finishing my degree thesis, I started working at [Trovit] as a **Web Developer**. I was in a small and multidisciplinary team and I learnt a lot of new things. After a year, though, I started to get more and more bored. I wasn't learning anything more and PHP made me uneasy. I preferred strongly typed languages as the ones I learnt in the university (Java and C++). At that moment, the company had opened a new position for the Big Data department, where I'd have the possibility to work with **Java, Hadoop** and other Big Data technologies. I was excited at the thought of determining the best data structure, or how to leverage all the data we had into useful information.
+A bit before finishing my degree thesis, I started working at [Trovit] as a **Web Developer**. I was in a small and multidisciplinary team and I learnt a lot of new things. After a year, though, I started to get more and more bored. I wasn't learning anything more and PHP made me uneasy. I preferred statically typed languages as the ones I learnt in the university (Java and C++). At that moment, the company had opened a new position for the Big Data department, where I'd have the possibility to work with **Java, Hadoop** and other Big Data technologies. I was excited at the thought of determining the best data structure, or how to leverage all the data we had into useful information.
 
 I applied for the position and the company accepted it. The change was intense. I was now managing data pipelines that lasted for hours instead of requests of a few milliseconds, and I was learning very fast again. I was happier with Java, it felt more explicit and precise than PHP.
 
