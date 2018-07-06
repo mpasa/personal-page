@@ -3,6 +3,7 @@ package templates
 import java.time.format.{DateTimeFormatterBuilder, TextStyle}
 import java.time.temporal.ChronoField
 
+import controllers.SiteMap
 import controllers.articles.Article
 import me.mpasa.Router
 import scalatags.Text.TypedTag
@@ -53,6 +54,27 @@ object ArticleT {
     """.stripMargin
   )
 
+  /** Shows a comments section using the Disqus API */
+  private def disqusComments(article: Article) = raw(
+    s"""
+      |<div id="disqus_thread"></div>
+      |<script>
+      |var disqus_config = function () {
+      |this.page.url = "${SiteMap.DOMAIN}${Router.Reverse.article(article)}";
+      |this.page.identifier = "articles/${article.metadata.permalink}";
+      |};
+      |
+      |(function() {
+      |var d = document, s = d.createElement('script');
+      |s.src = 'https://mpasa.disqus.com/embed.js';
+      |s.setAttribute('data-timestamp', +new Date());
+      |(d.head || d.body).appendChild(s);
+      |})();
+      |</script>
+      |<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    """.stripMargin
+  )
+
   /** Renders an article */
   def apply(options: LayoutOptions, article: Article): TypedTag[String] = PageT(options) {
     div(cls := "wrapper article")(
@@ -64,7 +86,8 @@ object ArticleT {
           twitterFollowButton
         )
       ),
-      raw(article.html)
+      raw(article.html),
+      disqusComments(article)
     )
   }
 }
