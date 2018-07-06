@@ -3,3 +3,6 @@
 
 # Scala
 target
+
+# Generated CSS
+src/main/resources/public/styles
