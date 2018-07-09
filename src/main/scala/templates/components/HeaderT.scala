@@ -8,7 +8,6 @@ import scalatags.Text.all._
   * It contains a title, short description and link to different sections
   */
 object HeaderT {
-
   def apply: TypedTag[String] = header(
     div(cls := "wrapper")(
       div(cls := "title")(

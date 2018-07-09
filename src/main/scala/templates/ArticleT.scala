@@ -81,7 +81,7 @@ object ArticleT {
       h1(article.metadata.title),
       div(cls := "flex spaceBetween")(
         showMetadata(article),
-        div(
+        div(cls := "sharing")(
           twitterShareButton(article.metadata.title),
           twitterFollowButton
         )

@@ -22,6 +22,9 @@ titleFont = 'Raleway'
 // Flex layouts
 .flex {
   display flex
+  +mobile() {
+    display block
+  }
 
   // Space between elements (first and last are at the limits of the parent)
   &.spaceBetween {
