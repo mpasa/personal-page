@@ -4,7 +4,7 @@ package me.mpasa
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
 import controllers.articles.{Archives, Article, ShowArticle}
-import controllers.{AboutMe, SiteMap}
+import controllers.{AboutMe, Rss, SiteMap}
 import templates.HomeT
 
 object Router {
@@ -19,6 +19,8 @@ object Router {
     val archives = "/archives"
     val tags = "/archives/tags"
     def tag(name: String): String = s"/archives/tags/$name"
+    // Feed
+    val feed = "/feed.xml"
   }
 
   private val handler = ExceptionHandler { case e =>
@@ -30,6 +32,7 @@ object Router {
     // Homepage
     path("")(get(Ok(HomeT.apply))),
     // Articles
+    path("feed.xml")(get(Rss.apply)),
     path("archives")(get(Archives.all)),
     path("archives" / "tags")(get(Archives.tags)),
     path("archives" / "tags" / Remaining) { tag => get(Archives.tag(tag)) },

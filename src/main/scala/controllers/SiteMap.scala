@@ -30,7 +30,8 @@ object SiteMap {
     Articles.all.map(Router.Reverse.article) ++   // Articles
     Seq(Router.Reverse.archives) ++               // Archives
     Seq(Router.Reverse.tags) ++                   // List of tags
-    Articles.allTags.map(Router.Reverse.tag)      // Tags
+    Articles.allTags.map(Router.Reverse.tag) ++   // Tags
+    Seq(Router.Reverse.feed)                      // Feed
   }
 
   /** Returns a sitemap given a list of all the urls */
@@ -46,7 +47,10 @@ object SiteMap {
 
   /** Gets the sitemap as a XML response */
   def apply: StandardRoute = {
-    val response = HttpEntity(ContentTypes.`text/xml(UTF-8)`, get(urls).render)
+    val response = HttpEntity(
+      ContentTypes.`text/xml(UTF-8)`,
+      """<?xml version="1.0"?>""" + get(urls).render
+    )
     complete(response)
   }
 }
