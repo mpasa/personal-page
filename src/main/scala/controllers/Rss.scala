@@ -2,7 +2,6 @@ package controllers
 
 import java.time.ZoneOffset.UTC
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
@@ -31,17 +30,15 @@ object Rss {
 
   private val rfc2822 = DateTimeFormatter
     .ofPattern("EEE, dd MMM yyyy HH:mm:ss Z")
-    .withLocale(new Locale("en_US"))
 
   private def get(articles: Seq[Article]) = {
     rss(version := "2.0")(
       channel(
         title("Miguel Pérez Pasalodos' blog"),
         link(SiteMap.DOMAIN),
-        articles.headOption.map(article => pubDate(article.metadata.published.atStartOfDay.toString)),
+        articles.headOption.map(article => pubDate(article.metadata.published.atStartOfDay(UTC).format(rfc2822))),
         description("A blog about Computer Science"),
         articles.map { article =>
-          article.metadata.published.atStartOfDay(UTC).format(rfc2822)
           val url = SiteMap.DOMAIN + Router.Reverse.article(article)
           item(
             title(article.metadata.title),
