@@ -19,11 +19,36 @@ object LayoutT {
     """
   )
 
+  /** A cookie consent for the EU
+    * It uses https://cookieconsent.insites.com
+    */
+  private val cookiesConsent = Seq(
+    link(rel := "stylesheet", href := "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"),
+    script(src := "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"),
+    script(raw(
+      """
+        |window.addEventListener("load", function(){
+        |  window.cookieconsent.initialise({
+        |    "palette": {
+        |      "popup": {
+        |        "background": "#000"
+        |      },
+        |      "button": {
+        |        "background": "transparent",
+        |        "text": "#14a7d0",
+        |        "border": "#14a7d0"
+        |      }
+        |    }
+        |  })
+        |});
+      """.stripMargin))
+  )
+
   def apply(options: LayoutOptions)(content: TypedTag[String]*): TypedTag[String] = html(
     head(
       meta(charset := "UTF-8"),
       options.css.map { css =>
-        link(rel := "stylesheet", href := s"/assets/styles/${css}.css")
+        link(rel := "stylesheet", href := s"/assets/styles/$css.css")
       },
       link(rel := "stylesheet", href := "https://fonts.googleapis.com/css?family=Noto+Sans,Raleway"),
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.0.13/css/all.css"),
@@ -38,7 +63,8 @@ object LayoutT {
       // Font Awesome
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.1.0/css/all.css"),
       tags2.title(options.fullTitle),
-      analytics
+      analytics,
+      cookiesConsent
     ),
     body(
       content,
