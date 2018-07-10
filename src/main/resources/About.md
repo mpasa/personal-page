@@ -8,13 +8,13 @@ Since I remember, I've always been very **data-driven**. Excel was, by far, my f
 
 ## University
 
-Following my passion, I studied **Computer Science** in the [Polytechnic University of Catalonia][UPC] (UPC). There, I discovered things about computers that I wasn't aware about, and fell in love with some of them. I chose optional subjects about programming languages, algorithms, machine learning and distributed systems. Especially, I liked to know how computers can solve hard problems.
+Following my passion, I studied **Computer Science** in the [Polytechnic University of Catalonia][UPC] (UPC). There, I discovered things about computers that I wasn't aware about, and fell in love with some of them. I chose optional subjects about programming languages, algorithms, machine learning and distributed systems. Especially, I liked to know how computers could solve hard problems.
 
 My first job was in the same University. I started giving support to manage a department's data center. At that moment I realised that hardware was not what I liked the most. Some time later, I started building a website for the department in PHP. Software made me happier, but PHP had something I didn't like (and I didn't know what it was at that moment).
 
 ## Work experience
 
-A bit before finishing my degree thesis, I started working at [Trovit] as a **Web Developer**. I was in a small and multidisciplinary team and I learnt a lot of new things. After a year, though, I started to get more and more bored. I wasn't learning anything more and PHP made me uneasy. I preferred statically typed languages as the ones I learnt in the university (Java and C++). At that moment, the company had opened a new position for the Big Data department, where I'd have the possibility to work with **Java, Hadoop** and other Big Data technologies. I was excited at the thought of determining the best data structure, or how to leverage all the data we had into useful information.
+A bit before finishing my degree thesis, I started working at [Trovit] as a **Web Developer**. I was in a small and multidisciplinary team and I learnt a lot of new things. After a year, though, I started to get more and more bored. I wasn't learning anything more and PHP made me uneasy. I preferred statically typed languages like the ones I learnt in the university (Java and C++). At that moment, the company had opened a new position for the Big Data department, where I'd have the possibility to work with **Java, Hadoop** and other Big Data technologies. I was excited at the thought of determining the best data structure, or how to leverage all the data we had into useful information.
 
 I applied for the position and the company accepted it. The change was intense. I was now managing data pipelines that lasted for hours instead of requests of a few milliseconds, and I was learning very fast again. I was happier with Java, it felt more explicit and precise than PHP.
 
@@ -24,7 +24,7 @@ As I researched Spark more and more, I started to fall in love with **Scala** an
 
 ## Community
 
-After some time working with Scala, I entered in its community. I found it very welcoming. On the Gitter room, you could read answers to very newby questions and also complex discussions about programming languages theory. I wanted to be part of that too.
+After some time working with Scala, I entered into its community. I found it very welcoming. On the Gitter room, you could read answers to very newby questions and also complex discussions about programming languages theory. I wanted to be part of that too.
 
 ## What about now?
 
