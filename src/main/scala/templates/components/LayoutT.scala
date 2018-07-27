@@ -50,7 +50,7 @@ object LayoutT {
       options.css.map { css =>
         link(rel := "stylesheet", href := s"/assets/styles/$css.css")
       },
-      link(rel := "stylesheet", href := "https://fonts.googleapis.com/css?family=Noto+Sans,Raleway"),
+      link(rel := "stylesheet", href := "https://fonts.googleapis.com/css?family=Noto+Sans|Raleway"),
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.0.13/css/all.css"),
       // KaTex CDN
       link(rel := "stylesheet", href := "https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"),
