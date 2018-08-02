@@ -29,7 +29,7 @@ object ArticleT {
     ),
     div(cls := "tags")(
       article.metadata.tags.toSeq.map { tag =>
-        span(cls := "tag")(a(href := Router.Reverse.tag(tag)), tag)
+        span(cls := "tag")(a(href := Router.Reverse.tag(tag), tag))
       }
     )
   )
