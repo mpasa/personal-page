@@ -1,5 +1,7 @@
 package controllers.articles
 
+import java.net.URLDecoder
+
 import akka.http.scaladsl.server.StandardRoute
 import controllers.NotFound
 import me.mpasa.Ok
@@ -27,11 +29,12 @@ object Archives {
 
   /** Shows a list of articles for a given tag */
   def tag(name: String): StandardRoute = {
+    val nameDecoded = URLDecoder.decode(name, "UTF-8")
     val tagsSet = Articles.allTags.toSet
-    if (tagsSet.contains(name)) {
-      val options = LayoutOptions(title = name)
-      val articles = Articles.all.filter(_.metadata.tags.contains(name))
-      Ok(ArchivesT.tag(options, name, articles))
+    if (tagsSet.contains(nameDecoded)) {
+      val options = LayoutOptions(title = nameDecoded)
+      val articles = Articles.all.filter(_.metadata.tags.contains(nameDecoded))
+      Ok(ArchivesT.tag(options, nameDecoded, articles))
     } else {
       NotFound.apply
     }
