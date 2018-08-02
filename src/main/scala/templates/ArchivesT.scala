@@ -18,7 +18,7 @@ object ArchivesT {
         "You can also check out a list of them grouped by ", a(href := Router.Reverse.tags, "tag"), "."
       ),
       ul(
-        articles.map { article =>
+        articles.sortBy(_.metadata.published)(Ordering.by(-_.toEpochDay)).map { article =>
           li(
             a(
               href := Router.Reverse.article(article),
