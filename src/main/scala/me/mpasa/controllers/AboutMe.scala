@@ -1,10 +1,10 @@
-package controllers
+package me.mpasa.controllers
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
 import org.commonmark.node.Node
-import templates.AboutMeT
-import templates.components.LayoutOptions
+import me.mpasa.templates.AboutMeT
+import me.mpasa.templates.components.LayoutOptions
 
 import scala.io.Source
 

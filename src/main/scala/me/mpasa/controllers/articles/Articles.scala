@@ -1,4 +1,4 @@
-package controllers.articles
+package me.mpasa.controllers.articles
 
 import scala.io.Source
 import scala.util.Try

@@ -1,9 +1,9 @@
-package templates
+package me.mpasa.templates
 
 import me.mpasa.Router
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.LayoutOptions
+import me.mpasa.templates.components.LayoutOptions
 
 object NotFoundT {
 

@@ -1,4 +1,4 @@
-package templates.components
+package me.mpasa.templates.components
 
 import me.mpasa.Router
 import scalatags.Text.TypedTag
@@ -19,6 +19,7 @@ object HeaderT {
       div(cls := "menu flex spaceBetween")(
         div(cls := "nav")(
           a(cls := "button", href := Router.Reverse.about, "About me"),
+          a(cls := "button", href := Router.Reverse.resume, "Resume"),
         ),
         SocialT.socialButtons
       )

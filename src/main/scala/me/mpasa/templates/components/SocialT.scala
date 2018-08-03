@@ -1,4 +1,4 @@
-package templates.components
+package me.mpasa.templates.components
 
 import me.mpasa.Router
 import scalatags.Text.all._

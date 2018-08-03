@@ -1,9 +1,9 @@
-package controllers
+package me.mpasa.controllers
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
-import controllers.articles.Articles
+import me.mpasa.controllers.articles.Articles
 import me.mpasa.Router
 import scalatags.Text
 import scalatags.Text.all._

@@ -1,11 +1,11 @@
-package templates
+package me.mpasa.templates
 
-import controllers.articles.Articles
+import me.mpasa.controllers.articles.Articles
 import me.mpasa.Router
 import mouse.boolean.booleanSyntaxMouse
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.LayoutOptions
+import me.mpasa.templates.components.LayoutOptions
 
 object HomeT {
 

@@ -1,10 +1,10 @@
-package templates
+package me.mpasa.templates
 
-import controllers.articles.Article
+import me.mpasa.controllers.articles.Article
 import me.mpasa.Router
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.LayoutOptions
+import me.mpasa.templates.components.LayoutOptions
 
 /** Templates to show different post archives */
 object ArchivesT {

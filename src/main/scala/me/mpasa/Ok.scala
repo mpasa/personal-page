@@ -1,4 +1,3 @@
-
 package me.mpasa
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, StatusCode, StatusCodes}

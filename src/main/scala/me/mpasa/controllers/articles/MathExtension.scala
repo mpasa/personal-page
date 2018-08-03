@@ -1,4 +1,4 @@
-package controllers.articles
+package me.mpasa.controllers.articles
 
 import org.commonmark.node.Text
 import org.commonmark.parser.Parser

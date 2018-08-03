@@ -1,6 +1,6 @@
-package controllers.articles
+package me.mpasa.controllers.articles
 
-import controllers.Markdown
+import me.mpasa.controllers.Markdown
 
 /** An article is just content (HTML) and metadata */
 final case class Article(metadata: ArticleMetadata, html: String) {

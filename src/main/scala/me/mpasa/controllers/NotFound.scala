@@ -1,10 +1,10 @@
-package controllers
+package me.mpasa.controllers
 
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import templates.NotFoundT
-import templates.components.LayoutOptions
+import me.mpasa.templates.NotFoundT
+import me.mpasa.templates.components.LayoutOptions
 
 /** Shows a generic 404 page */
 object NotFound {

@@ -1,10 +1,10 @@
-package controllers.articles
+package me.mpasa.controllers.articles
 
 import akka.http.scaladsl.server.StandardRoute
-import controllers.NotFound
+import me.mpasa.controllers.NotFound
 import me.mpasa.Ok
-import templates.ArticleT
-import templates.components.LayoutOptions
+import me.mpasa.templates.ArticleT
+import me.mpasa.templates.components.LayoutOptions
 
 object ShowArticle {
 

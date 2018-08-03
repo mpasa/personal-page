@@ -1,4 +1,4 @@
-package templates.components
+package me.mpasa.templates.components
 
 /** Options for the rendering of the base layout
   *

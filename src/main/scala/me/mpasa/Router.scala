@@ -1,11 +1,10 @@
-
 package me.mpasa
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
-import controllers.articles.{Archives, Article, ShowArticle}
-import controllers.{AboutMe, Rss, SiteMap}
-import templates.HomeT
+import me.mpasa.controllers.articles.{Archives, Article, ShowArticle}
+import me.mpasa.controllers.{AboutMe, Rss, SiteMap}
+import me.mpasa.templates.HomeT
 
 object Router {
 

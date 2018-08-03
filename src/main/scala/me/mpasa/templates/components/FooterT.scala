@@ -1,4 +1,4 @@
-package templates.components
+package me.mpasa.templates.components
 
 import scalatags.Text.TypedTag
 import scalatags.Text.all._

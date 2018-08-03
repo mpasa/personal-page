@@ -1,10 +1,10 @@
-package templates
+package me.mpasa.templates
 
-import controllers.Markdown
+import me.mpasa.controllers.Markdown
 import org.commonmark.node.Node
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.LayoutOptions
+import me.mpasa.templates.components.LayoutOptions
 
 object AboutMeT {
 

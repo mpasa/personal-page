@@ -1,14 +1,14 @@
-package templates
+package me.mpasa.templates
 
 import java.time.format.{DateTimeFormatterBuilder, TextStyle}
 import java.time.temporal.ChronoField
 
-import controllers.SiteMap
-import controllers.articles.Article
+import me.mpasa.controllers.SiteMap
+import me.mpasa.controllers.articles.Article
 import me.mpasa.Router
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.{Icon, LayoutOptions}
+import me.mpasa.templates.components.{Icon, LayoutOptions}
 
 /** Templates to display articles */
 object ArticleT {

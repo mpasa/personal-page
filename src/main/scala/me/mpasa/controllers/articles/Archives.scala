@@ -1,12 +1,12 @@
-package controllers.articles
+package me.mpasa.controllers.articles
 
 import java.net.URLDecoder
 
 import akka.http.scaladsl.server.StandardRoute
-import controllers.NotFound
+import me.mpasa.controllers.NotFound
 import me.mpasa.Ok
-import templates.ArchivesT
-import templates.components.LayoutOptions
+import me.mpasa.templates.ArchivesT
+import me.mpasa.templates.components.LayoutOptions
 
 /** Controllers to show different post archives
   * - All posts

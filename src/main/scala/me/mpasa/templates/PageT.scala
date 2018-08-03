@@ -1,8 +1,8 @@
-package templates
+package me.mpasa.templates
 
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import templates.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
+import me.mpasa.templates.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
 
 /** All pages with header */
 object PageT {

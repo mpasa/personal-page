@@ -1,6 +1,6 @@
-package controllers
+package me.mpasa.controllers
 
-import controllers.articles.MathExtension
+import me.mpasa.controllers.articles.MathExtension
 import org.commonmark.ext.front.matter.YamlFrontMatterExtension
 import org.commonmark.ext.gfm.tables.TablesExtension
 import org.commonmark.parser.Parser

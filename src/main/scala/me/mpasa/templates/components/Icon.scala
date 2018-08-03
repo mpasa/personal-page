@@ -1,4 +1,4 @@
-package templates.components
+package me.mpasa.templates.components
 
 import scalatags.Text.all._
 import scalatags.text.Frag
