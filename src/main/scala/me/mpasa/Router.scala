@@ -3,7 +3,7 @@ package me.mpasa
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
 import me.mpasa.controllers.articles.{Archives, Article, ShowArticle}
-import me.mpasa.controllers.{AboutMe, Rss, SiteMap}
+import me.mpasa.controllers.{AboutMe, Resume, Rss, SiteMap}
 import me.mpasa.templates.HomeT
 
 object Router {
@@ -11,6 +11,7 @@ object Router {
   object Reverse {
     // About me
     val about = "/about-me"
+    val resume = "/resume"
     // Articles
     def article(permalink: String): String = s"/articles/$permalink"
     def article(entity: Article): String = article(entity.metadata.permalink)
@@ -38,6 +39,7 @@ object Router {
     path("articles" / Remaining) { permalink => get(ShowArticle(permalink)) },
     // About me
     path("about-me")(get(AboutMe.apply)),
+    path("resume")(get(Resume.apply)),
     // Sitemap
     path("sitemap.xml")(get(SiteMap.apply)),
     // Assets

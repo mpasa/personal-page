@@ -62,7 +62,9 @@ object LayoutT {
       script(src := "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"),
       // Font Awesome
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.1.0/css/all.css"),
+      // Title
       tags2.title(options.fullTitle),
+      options.extraHead,
       analytics,
       cookiesConsent
     ),

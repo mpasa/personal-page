@@ -1,8 +1,11 @@
 lazy val root = (project in file("."))
+  .dependsOn(resume)
   .settings(projectSettings: _*)
   .settings(libraryDependencies ++= projectDependencies)
   .settings(scalacOptions ++= advanceScalacOptions)
   .enablePlugins(JavaAppPackaging)
+
+lazy val resume = RootProject(uri("https://github.com/mpasa/resume.git#master"))
 
 lazy val projectSettings = Seq(
   name := "mpasa",
