@@ -26,6 +26,7 @@ object SiteMap {
   private val urls: Seq[String] = {
     Seq("") ++                                    // Homepage
     Seq(Router.Reverse.about) ++                  // About me
+    Seq(Router.Reverse.resume) ++                 // Resume
     // Blog
     Articles.all.map(Router.Reverse.article) ++   // Articles
     Seq(Router.Reverse.archives) ++               // Archives
