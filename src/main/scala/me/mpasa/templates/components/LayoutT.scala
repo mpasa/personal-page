@@ -66,7 +66,8 @@ object LayoutT {
       tags2.title(options.fullTitle),
       options.extraHead,
       analytics,
-      cookiesConsent
+      cookiesConsent,
+      script(src := "/assets/scripts/article.js")
     ),
     body(
       content,

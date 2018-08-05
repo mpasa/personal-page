@@ -4,5 +4,7 @@
 # Scala
 target
 
-# Generated CSS
+# Generated assets
+node_modules
 src/main/resources/public/styles
+src/main/resources/public/scripts
