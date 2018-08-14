@@ -26,6 +26,7 @@ class MathDelimiterProcessor extends DelimiterProcessor {
 class MathExtension extends ParserExtension {
   override def extend(parserBuilder: Parser.Builder): Unit = {
     parserBuilder.customDelimiterProcessor(new MathDelimiterProcessor)
+    ()
   }
 }
 
