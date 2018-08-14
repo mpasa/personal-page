@@ -4,7 +4,7 @@ import java.time.format.{DateTimeFormatterBuilder, TextStyle}
 import java.time.temporal.ChronoField
 
 import me.mpasa.controllers.SiteMap
-import me.mpasa.controllers.articles.Article
+import me.mpasa.controllers.articles.{Article, ShownArticle}
 import me.mpasa.Router
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
@@ -54,6 +54,22 @@ object ArticleT {
     """.stripMargin
   )
 
+  /** Shows a section with links to the previous and next articles */
+  private def prevNext(previous: Option[Article], next: Option[Article]) = {
+    div(cls := "prevNext")(
+      div(cls := "previous")(
+        previous.map { previous =>
+          a(href := Router.Reverse.article(previous), "« " + previous.metadata.title)
+        }
+      ),
+      div(cls := "next")(
+        next.map { next =>
+          a(href := Router.Reverse.article(next), next.metadata.title + " »")
+        }
+      )
+    )
+  }
+
   /** Shows a comments section using the Disqus API */
   private def disqusComments(article: Article) = raw(
     s"""
@@ -76,18 +92,19 @@ object ArticleT {
   )
 
   /** Renders an article */
-  def apply(options: LayoutOptions, article: Article): TypedTag[String] = PageT(options) {
+  def apply(options: LayoutOptions, article: ShownArticle): TypedTag[String] = PageT(options) {
     div(cls := "wrapper article")(
-      h1(article.metadata.title),
+      h1(article.article.metadata.title),
       div(cls := "flex spaceBetween")(
-        showMetadata(article),
+        showMetadata(article.article),
         div(cls := "sharing")(
-          twitterShareButton(article.metadata.title),
+          twitterShareButton(article.article.metadata.title),
           twitterFollowButton
         )
       ),
-      raw(article.html),
-      disqusComments(article)
+      raw(article.article.html),
+      prevNext(article.previous, article.next),
+      disqusComments(article.article)
     )
   }
 }
