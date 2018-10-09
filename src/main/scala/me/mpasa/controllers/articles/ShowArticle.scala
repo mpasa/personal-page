@@ -20,7 +20,7 @@ object ShowArticle {
       val previous = Try(articlesByDate(currentIndex - 1)).toOption
       val next = Try(articlesByDate(currentIndex + 1)).toOption
       val shownArticle = ShownArticle(article, previous, next)
-      val options = LayoutOptions(article.metadata.title, Seq("articles"))
+      val options = LayoutOptions(article.metadata.title, description = article.metadata.description, css = Seq("articles"))
       Ok(ArticleT(options, shownArticle))
     }
     result.getOrElse(NotFound.apply)

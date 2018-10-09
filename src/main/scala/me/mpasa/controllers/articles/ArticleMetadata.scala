@@ -14,8 +14,13 @@ import scala.util.Try
   * @param permalink the text used to build the
   * @param published the date the article was originally published
   * @param tags a list of strings describing the content with keywords
+  * @param description an optional short description for the article
   */
-final case class ArticleMetadata(title: String, permalink: String, published: LocalDate, tags: Set[String])
+final case class ArticleMetadata(title: String,
+                                 permalink: String,
+                                 published: LocalDate,
+                                 tags: Set[String],
+                                 description: Option[String])
 
 object ArticleMetadata {
 
@@ -34,6 +39,6 @@ object ArticleMetadata {
       permalink <- map.get("permalink").flatMap(_.headOption)
       published <- map.get("published").flatMap(_.headOption).flatMap(datetime => Try(LocalDate.parse(datetime)).toOption)
       tags <- map.get("tags")
-    } yield ArticleMetadata(title, permalink, published, tags.toSet)
+    } yield ArticleMetadata(title, permalink, published, tags.toSet, map.get("description").map(_.head))
   }
 }

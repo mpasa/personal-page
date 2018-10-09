@@ -44,7 +44,7 @@ object LayoutT {
       """.stripMargin))
   )
 
-  def apply(options: LayoutOptions)(content: TypedTag[String]*): TypedTag[String] = html(
+  def apply(options: LayoutOptions)(pageContent: TypedTag[String]*): TypedTag[String] = html(
     head(
       meta(charset := "UTF-8"),
       options.css.map { css =>
@@ -64,13 +64,15 @@ object LayoutT {
       link(rel := "stylesheet", href := "https://use.fontawesome.com/releases/v5.1.0/css/all.css"),
       // Title
       tags2.title(options.fullTitle),
+      // Description
+      options.description.map(description => meta(name := "description", content := description)),
       options.extraHead,
       analytics,
       cookiesConsent,
       script(src := "/assets/scripts/article.js")
     ),
     body(
-      content,
+      pageContent,
       script(raw(
         """
           |hljs.initHighlightingOnLoad();
