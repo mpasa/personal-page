@@ -14,7 +14,7 @@ object AboutMe {
   def apply: StandardRoute = {
     val content = Source.fromResource("About.md").mkString
     val document: Node = Markdown.parser.parse(content)
-    val options = LayoutOptions("About me", Seq("articles"))
+    val options = LayoutOptions("About me", css = Seq("articles"))
     Ok(AboutMeT(options, document))
   }
 }
