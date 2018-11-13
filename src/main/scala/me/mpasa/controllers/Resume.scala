@@ -10,7 +10,7 @@ object Resume {
 
   /** Shows an "about me" page */
   def apply: StandardRoute = {
-    val template = CleanTemplate
+    val template = new CleanTemplate(onePage = false)
     val options = LayoutOptions("Resume", extraHead = template.styles)
     Ok(ResumeT(options, Data.resume, template))
   }
