@@ -10,10 +10,10 @@ final case class Article(metadata: ArticleMetadata, html: String) {
 object Article {
 
   /** Parses an article from a markdown file */
-  def parse(content: String): Option[Article] = {
+  def parse(markdown: Markdown)(content: String): Option[Article] = {
     for {
-      document <- Option(Markdown.parser.parse(content))
+      document <- Option(markdown.parser.parse(content))
       metadata <- ArticleMetadata.parse(document)
-    } yield Article(metadata, Markdown.renderer.render(document))
+    } yield Article(metadata, markdown.renderer.render(document))
   }
 }

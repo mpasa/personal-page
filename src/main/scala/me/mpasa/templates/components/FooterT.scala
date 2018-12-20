@@ -3,7 +3,7 @@ package me.mpasa.templates.components
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
 
-object FooterT {
+class FooterT {
 
   /** Template of the footer */
   def apply: TypedTag[String] = footer(cls := "wrapper") {

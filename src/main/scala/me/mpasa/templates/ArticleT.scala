@@ -3,15 +3,15 @@ package me.mpasa.templates
 import java.time.format.{DateTimeFormatterBuilder, TextStyle}
 import java.time.temporal.ChronoField
 
+import me.mpasa.ReverseRouter
 import me.mpasa.controllers.SiteMap
 import me.mpasa.controllers.articles.{Article, ShownArticle}
-import me.mpasa.Router
+import me.mpasa.templates.components.{Icon, LayoutOptions}
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import me.mpasa.templates.components.{Icon, LayoutOptions}
 
 /** Templates to display articles */
-object ArticleT {
+class ArticleT(layout: PageT, reverseRouter: ReverseRouter, siteMap: SiteMap) {
 
   private val DATE_FORMATTER = new DateTimeFormatterBuilder()
     .appendText(ChronoField.MONTH_OF_YEAR, TextStyle.FULL)
@@ -29,7 +29,7 @@ object ArticleT {
     ),
     div(cls := "tags")(
       article.metadata.tags.toSeq.map { tag =>
-        span(cls := "tag")(a(href := Router.Reverse.tag(tag), tag))
+        span(cls := "tag")(a(href := reverseRouter.tag(tag), tag))
       }
     )
   )
@@ -59,12 +59,12 @@ object ArticleT {
     div(cls := "prevNext")(
       div(cls := "previous")(
         previous.map { previous =>
-          a(href := Router.Reverse.article(previous), "« " + previous.metadata.title)
+          a(href := reverseRouter.article(previous), "« " + previous.metadata.title)
         }
       ),
       div(cls := "next")(
         next.map { next =>
-          a(href := Router.Reverse.article(next), next.metadata.title + " »")
+          a(href := reverseRouter.article(next), next.metadata.title + " »")
         }
       )
     )
@@ -76,7 +76,7 @@ object ArticleT {
       |<div id="disqus_thread"></div>
       |<script>
       |var disqus_config = function () {
-      |this.page.url = "${SiteMap.DOMAIN}${Router.Reverse.article(article)}";
+      |this.page.url = "${siteMap.DOMAIN}${reverseRouter.article(article)}";
       |this.page.identifier = "articles/${article.metadata.permalink}";
       |};
       |
@@ -92,7 +92,7 @@ object ArticleT {
   )
 
   /** Renders an article */
-  def apply(options: LayoutOptions, article: ShownArticle): TypedTag[String] = PageT(options) {
+  def apply(options: LayoutOptions, article: ShownArticle): TypedTag[String] = layout(options) {
     div(cls := "wrapper article")(
       h1(article.article.metadata.title),
       div(cls := "flex spaceBetween")(

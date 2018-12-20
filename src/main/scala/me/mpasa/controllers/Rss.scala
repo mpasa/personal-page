@@ -6,13 +6,13 @@ import java.time.format.DateTimeFormatter
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
+import me.mpasa.ReverseRouter
 import me.mpasa.controllers.articles.{Article, Articles}
-import me.mpasa.Router
 import scalatags.Text.all._
 import scalatags.Text.tags2.title
 import scalatags.text.Frag
 
-object Rss {
+class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articles: Articles) {
 
   private val rss = tag("rss")
   private val version = attr("version")
@@ -35,11 +35,11 @@ object Rss {
     rss(version := "2.0")(
       channel(
         title("Miguel Pérez Pasalodos' blog"),
-        link(SiteMap.DOMAIN),
+        link(siteMap.DOMAIN),
         articles.headOption.map(article => pubDate(article.metadata.published.atStartOfDay(UTC).format(rfc2822))),
         description("A blog about Computer Science"),
         articles.map { article =>
-          val url = SiteMap.DOMAIN + Router.Reverse.article(article)
+          val url = siteMap.DOMAIN + reverseRouter.article(article)
           item(
             title(article.metadata.title),
             link(url),
@@ -55,7 +55,7 @@ object Rss {
   def apply: StandardRoute = {
     val response = HttpEntity(
       ContentTypes.`text/xml(UTF-8)`,
-      """<?xml version="1.0"?>""" + get(Articles.all).render
+      """<?xml version="1.0"?>""" + get(articles.all).render
     )
     complete(response)
   }

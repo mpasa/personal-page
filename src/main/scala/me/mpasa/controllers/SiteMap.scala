@@ -3,13 +3,13 @@ package me.mpasa.controllers
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
+import me.mpasa.ReverseRouter
 import me.mpasa.controllers.articles.Articles
-import me.mpasa.Router
 import scalatags.Text
 import scalatags.Text.all._
 
 /** Generates a sitemap with all the pages */
-object SiteMap {
+class SiteMap(reverseRouter: ReverseRouter, articles: Articles) {
 
   val DOMAIN = "https://mpasa.me"
 
@@ -25,14 +25,14 @@ object SiteMap {
   // Sequence of all URLs relative to the domain
   private val urls: Seq[String] = {
     Seq("") ++                                    // Homepage
-    Seq(Router.Reverse.about) ++                  // About me
-    Seq(Router.Reverse.resume) ++                 // Resume
+    Seq(reverseRouter.about) ++                  // About me
+    Seq(reverseRouter.resume) ++                 // Resume
     // Blog
-    Articles.all.map(Router.Reverse.article) ++   // Articles
-    Seq(Router.Reverse.archives) ++               // Archives
-    Seq(Router.Reverse.tags) ++                   // List of tags
-    Articles.allTags.map(Router.Reverse.tag) ++   // Tags
-    Seq(Router.Reverse.feed)                      // Feed
+    articles.all.map(reverseRouter.article) ++   // Articles
+    Seq(reverseRouter.archives) ++               // Archives
+    Seq(reverseRouter.tags) ++                   // List of tags
+    articles.allTags.map(reverseRouter.tag) ++   // Tags
+    Seq(reverseRouter.feed)                      // Feed
   }
 
   /** Returns a sitemap given a list of all the urls */

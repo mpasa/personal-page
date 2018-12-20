@@ -9,7 +9,7 @@ import org.commonmark.renderer.html.HtmlRenderer
 import scala.collection.JavaConverters._
 
 /** Utils for markdown rendering and rendering */
-object Markdown {
+class Markdown {
 
   private val extensions = Seq(
     TablesExtension.create,

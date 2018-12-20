@@ -1,9 +1,9 @@
 package me.mpasa.templates.components
 
-import me.mpasa.Router
+import me.mpasa.ReverseRouter
 import scalatags.Text.all._
 
-object SocialT {
+class SocialT(reverseRouter: ReverseRouter) {
   /** A fancy way of getting icons */
   private def icon(iconClass: String) = span(cls := s"icon $iconClass")
 
@@ -12,6 +12,6 @@ object SocialT {
     a(cls := "twitter", href := "https://twitter.com/Kamugo")(icon(("fab fa-twitter"))),
     a(cls := "github", href := "https://github.com/mpasa")(icon(("fab fa-github"))),
     a(cls := "linkedin", href := "https://www.linkedin.com/in/miguel-perez-pasalodos")(icon(("fab fa-linkedin"))),
-    a(cls := "rss", href := Router.Reverse.feed)(icon(("fas fa-rss")))
+    a(cls := "rss", href := reverseRouter.feed)(icon(("fas fa-rss")))
   )
 }

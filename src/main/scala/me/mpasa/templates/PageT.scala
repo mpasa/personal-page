@@ -1,18 +1,18 @@
 package me.mpasa.templates
 
+import me.mpasa.templates.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import me.mpasa.templates.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
 
 /** All pages with header */
-object PageT {
+class PageT(layout: LayoutT, headerT: HeaderT, footerT: FooterT) {
   def apply(options: LayoutOptions)(content: TypedTag[String]*): TypedTag[String] = {
     val optionsWithCommonCSS = options.copy(css = options.css :+ "common")
-    LayoutT(optionsWithCommonCSS)(
+    layout(optionsWithCommonCSS)(
       div(cls := "main")(
-        HeaderT.apply,
+        headerT.apply,
         div(cls := "contentWrapper")(content),
-        FooterT.apply
+        footerT.apply
       )
     )
   }

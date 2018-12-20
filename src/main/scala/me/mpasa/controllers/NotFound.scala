@@ -7,9 +7,9 @@ import me.mpasa.templates.NotFoundT
 import me.mpasa.templates.components.LayoutOptions
 
 /** Shows a generic 404 page */
-object NotFound {
+class NotFound(notFoundT: NotFoundT) {
   def apply: StandardRoute = {
     val options = LayoutOptions("Page not found")
-    Ok(StatusCodes.NotFound, NotFoundT(options))
+    Ok(StatusCodes.NotFound, notFoundT(options))
   }
 }

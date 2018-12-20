@@ -1,13 +1,13 @@
 package me.mpasa.templates.components
 
-import me.mpasa.Router
+import me.mpasa.ReverseRouter
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
 
 /** Header of the page
   * It contains a title, short description and link to different sections
   */
-object HeaderT {
+class HeaderT(router: ReverseRouter, socialT: SocialT) {
   def apply: TypedTag[String] = header(
     div(cls := "wrapper")(
       div(cls := "title")(
@@ -18,10 +18,10 @@ object HeaderT {
       },
       div(cls := "menu flex spaceBetween")(
         div(cls := "nav")(
-          a(cls := "button", href := Router.Reverse.about, "About me"),
-          a(cls := "button", href := Router.Reverse.resume, "Resume"),
+          a(cls := "button", href := router.about, "About me"),
+          a(cls := "button", href := router.resume, "Resume"),
         ),
-        SocialT.socialButtons
+        socialT.socialButtons
       )
     )
   )

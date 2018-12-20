@@ -2,26 +2,11 @@ package me.mpasa
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
-import me.mpasa.controllers.articles.{Archives, Article, ShowArticle}
+import me.mpasa.controllers.articles.{Archives, ShowArticle}
 import me.mpasa.controllers.{AboutMe, Resume, Rss, SiteMap}
 import me.mpasa.templates.HomeT
 
-object Router {
-
-  object Reverse {
-    // About me
-    val about = "/about-me"
-    val resume = "/resume"
-    // Articles
-    def article(permalink: String): String = s"/articles/$permalink"
-    def article(entity: Article): String = article(entity.metadata.permalink)
-    // Article archives
-    val archives = "/archives"
-    val tags = "/archives/tags"
-    def tag(name: String): String = s"/archives/tags/$name"
-    // Feed
-    val feed = "/feed.xml"
-  }
+class Router(homeT: HomeT, rss: Rss, archives: Archives, showArticle: ShowArticle, aboutMe: AboutMe, siteMap: SiteMap, resume: Resume) {
 
   private val handler = ExceptionHandler { case e =>
     throw e;
@@ -30,18 +15,18 @@ object Router {
 
   private val routesList = List(
     // Homepage
-    path("")(get(Ok(HomeT.apply))),
+    path("")(get(Ok(homeT.apply))),
     // Articles
-    path("feed.xml")(get(Rss.apply)),
-    path("archives")(get(Archives.all)),
-    path("archives" / "tags")(get(Archives.tags)),
-    path("archives" / "tags" / Remaining) { tag => get(Archives.tag(tag)) },
-    path("articles" / Remaining) { permalink => get(ShowArticle(permalink)) },
+    path("feed.xml")(get(rss.apply)),
+    path("archives")(get(archives.all)),
+    path("archives" / "tags")(get(archives.tags)),
+    path("archives" / "tags" / Remaining) { tag => get(archives.tag(tag)) },
+    path("articles" / Remaining) { permalink => get(showArticle(permalink)) },
     // About me
-    path("about-me")(get(AboutMe.apply)),
-    path("resume")(get(Resume.apply)),
+    path("about-me")(get(aboutMe.apply)),
+    path("resume")(get(resume.apply)),
     // Sitemap
-    path("sitemap.xml")(get(SiteMap.apply)),
+    path("sitemap.xml")(get(siteMap.apply)),
     // Assets
     pathPrefix("assets")(getFromResourceDirectory("public"))
   )

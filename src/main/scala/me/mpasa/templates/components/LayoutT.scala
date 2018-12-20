@@ -4,7 +4,7 @@ import scalatags.Text.all._
 import scalatags.Text.{TypedTag, tags2}
 
 /** Base layout for all pages */
-object LayoutT {
+class LayoutT {
 
   /** Analytics tracking code */
   private val analytics = raw(

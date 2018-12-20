@@ -1,19 +1,19 @@
 package me.mpasa.templates
 
-import me.mpasa.Router
+import me.mpasa.ReverseRouter
+import me.mpasa.templates.components.LayoutOptions
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
-import me.mpasa.templates.components.LayoutOptions
 
-object NotFoundT {
+class NotFoundT(layout: PageT, reverseRouter: ReverseRouter) {
 
   /** 404 template */
-  def apply(options: LayoutOptions): TypedTag[String] = PageT(options) {
+  def apply(options: LayoutOptions): TypedTag[String] = layout(options) {
     div(cls := "notFound wrapper")(
       h1("404"),
       p(
         "This page doesn't exist. This is bad, but not that bad! You can still find all my articles ",
-        a(href := Router.Reverse.archives, "here"), "."
+        a(href := reverseRouter.archives, "here"), "."
       )
     )
   }
