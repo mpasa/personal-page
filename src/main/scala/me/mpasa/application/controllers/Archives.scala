@@ -1,19 +1,19 @@
-package me.mpasa.application.controllers.articles
+package me.mpasa.application.controllers
 
 import java.net.URLDecoder
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import me.mpasa.application.controllers.NotFound
-import me.mpasa.templates.ArchivesT
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.interface.ArchivesT
+import me.mpasa.interface.components.LayoutOptions
 
 /** Controllers to show different post archives
   * - All posts
   * - Tags
   * - Posts by tag
   */
-class Archives(notFound: NotFound, archivesT: ArchivesT, articlesRepository: Articles) {
+class Archives(notFound: NotFound, archivesT: ArchivesT, articlesRepository: ArticleRepository) {
 
   /** Shows a list with all the posts */
   def all: StandardRoute = {

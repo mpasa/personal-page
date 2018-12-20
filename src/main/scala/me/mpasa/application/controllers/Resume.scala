@@ -3,8 +3,8 @@ package me.mpasa.application.controllers
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
 import me.mpasa.resume.{CleanTemplate, Data}
-import me.mpasa.templates.ResumeT
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.interface.ResumeT
+import me.mpasa.interface.components.LayoutOptions
 
 class Resume(resumeT: ResumeT) {
 

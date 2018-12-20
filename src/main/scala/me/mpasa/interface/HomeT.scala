@@ -1,13 +1,13 @@
-package me.mpasa.templates
+package me.mpasa.interface
 
 import me.mpasa.ReverseRouter
-import me.mpasa.application.controllers.articles.Articles
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.interface.components.LayoutOptions
 import mouse.boolean.booleanSyntaxMouse
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
 
-class HomeT(layout: PageT, reverseRouter: ReverseRouter, articles: Articles) {
+class HomeT(layout: PageT, reverseRouter: ReverseRouter, articleRepository: ArticleRepository) {
 
   // Number of the last articles to be shown
   val NUM_ARTICLES = 5
@@ -15,7 +15,7 @@ class HomeT(layout: PageT, reverseRouter: ReverseRouter, articles: Articles) {
   /** Homepage template */
   def apply: TypedTag[String] = layout(LayoutOptions("Home")) {
     div(cls := "wrapper")(
-      articles.all.nonEmpty.option(articles.all).map { articles =>
+      articleRepository.all.nonEmpty.option(articleRepository.all).map { articles =>
         div(
           h2("Last articles"),
           ul(

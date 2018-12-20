@@ -1,6 +1,6 @@
-package me.mpasa.templates
+package me.mpasa.interface
 
-import me.mpasa.templates.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
+import me.mpasa.interface.components.{FooterT, HeaderT, LayoutOptions, LayoutT}
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
 

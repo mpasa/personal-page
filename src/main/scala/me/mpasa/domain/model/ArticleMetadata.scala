@@ -1,4 +1,4 @@
-package me.mpasa.application.controllers.articles
+package me.mpasa.domain.model
 
 import java.time.LocalDate
 

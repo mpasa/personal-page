@@ -1,6 +1,6 @@
 package me.mpasa.application.service
 
-import me.mpasa.application.controllers.articles.MathExtension
+import me.mpasa.application.controllers.MathExtension
 import org.commonmark.ext.front.matter.YamlFrontMatterExtension
 import org.commonmark.ext.gfm.tables.TablesExtension
 import org.commonmark.parser.Parser

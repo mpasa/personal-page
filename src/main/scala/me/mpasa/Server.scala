@@ -5,10 +5,10 @@ import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import com.softwaremill.macwire._
 import me.mpasa.application.controllers._
-import me.mpasa.application.controllers.articles.{Archives, Articles, ShowArticle}
 import me.mpasa.application.service.{ArticleParserService, MarkdownService}
-import me.mpasa.templates._
-import me.mpasa.templates.components.{FooterT, HeaderT, LayoutT, SocialT}
+import me.mpasa.infrastructure.ArticleRepositoryResources
+import me.mpasa.interface._
+import me.mpasa.interface.components.{FooterT, HeaderT, LayoutT, SocialT}
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.util.{Success, Try}
@@ -20,6 +20,8 @@ trait Modules {
   // Services
   lazy val articleParserService = wire[ArticleParserService]
   lazy val markdownService = wire[MarkdownService]
+  // Repositories
+  lazy val articleRepository = wire[ArticleRepositoryResources]
   // Controllers
   lazy val aboutMe = wire[AboutMe]
   lazy val notFound = wire[NotFound]
@@ -27,7 +29,6 @@ trait Modules {
   lazy val rss = wire[Rss]
   lazy val sitemap = wire[SiteMap]
   lazy val archives = wire[Archives]
-  lazy val articles = wire[Articles]
   lazy val showArticle = wire[ShowArticle]
   // Interface components
   lazy val footerT = wire[FooterT]

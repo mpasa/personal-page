@@ -1,7 +1,6 @@
 package me.mpasa.application.service
 
-import me.mpasa.application.controllers.articles.ArticleMetadata
-import me.mpasa.domain.model.Article
+import me.mpasa.domain.model.{Article, ArticleMetadata}
 
 class ArticleParserService(markdownService: MarkdownService) {
 

@@ -7,13 +7,13 @@ import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.ReverseRouter
-import me.mpasa.application.controllers.articles.Articles
 import me.mpasa.domain.model.Article
+import me.mpasa.domain.repository.ArticleRepository
 import scalatags.Text.all._
 import scalatags.Text.tags2.title
 import scalatags.text.Frag
 
-class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articles: Articles) {
+class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articleRepository: ArticleRepository) {
 
   private val rss = tag("rss")
   private val version = attr("version")
@@ -29,8 +29,7 @@ class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articles: Articles) {
     override def writeTo(strb: StringBuilder): Unit = strb ++= render
   }
 
-  private val rfc2822 = DateTimeFormatter
-    .ofPattern("EEE, dd MMM yyyy HH:mm:ss Z")
+  private val rfc2822 = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm:ss Z")
 
   private def get(articles: Seq[Article]) = {
     rss(version := "2.0")(
@@ -56,7 +55,7 @@ class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articles: Articles) {
   def apply: StandardRoute = {
     val response = HttpEntity(
       ContentTypes.`text/xml(UTF-8)`,
-      """<?xml version="1.0"?>""" + get(articles.all).render
+      """<?xml version="1.0"?>""" + get(articleRepository.all).render
     )
     complete(response)
   }

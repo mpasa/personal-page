@@ -4,12 +4,12 @@ import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.ReverseRouter
-import me.mpasa.application.controllers.articles.Articles
+import me.mpasa.domain.repository.ArticleRepository
 import scalatags.Text
 import scalatags.Text.all._
 
 /** Generates a sitemap with all the pages */
-class SiteMap(reverseRouter: ReverseRouter, articles: Articles) {
+class SiteMap(reverseRouter: ReverseRouter, articleRepository: ArticleRepository) {
 
   val DOMAIN = "https://mpasa.me"
 
@@ -28,10 +28,10 @@ class SiteMap(reverseRouter: ReverseRouter, articles: Articles) {
     Seq(reverseRouter.about) ++                  // About me
     Seq(reverseRouter.resume) ++                 // Resume
     // Blog
-    articles.all.map(reverseRouter.article) ++   // Articles
+    articleRepository.all.map(reverseRouter.article) ++   // Articles
     Seq(reverseRouter.archives) ++               // Archives
     Seq(reverseRouter.tags) ++                   // List of tags
-    articles.allTags.map(reverseRouter.tag) ++   // Tags
+    articleRepository.allTags.map(reverseRouter.tag) ++   // Tags
     Seq(reverseRouter.feed)                      // Feed
   }
 

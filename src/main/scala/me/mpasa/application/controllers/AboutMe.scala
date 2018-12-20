@@ -3,8 +3,8 @@ package me.mpasa.application.controllers
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
 import me.mpasa.application.service.MarkdownService
-import me.mpasa.templates.AboutMeT
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.interface.AboutMeT
+import me.mpasa.interface.components.LayoutOptions
 import org.commonmark.node.Node
 
 import scala.io.Source

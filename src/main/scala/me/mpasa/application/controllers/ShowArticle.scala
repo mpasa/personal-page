@@ -1,20 +1,21 @@
-package me.mpasa.application.controllers.articles
+package me.mpasa.application.controllers
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import me.mpasa.application.controllers.NotFound
-import me.mpasa.templates.ArticleT
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.domain.model.ShownArticle
+import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.interface.ArticleT
+import me.mpasa.interface.components.LayoutOptions
 
 import scala.util.Try
 
-class ShowArticle(articles: Articles, notFound: NotFound, articleT: ArticleT) {
+class ShowArticle(articleRepository: ArticleRepository, notFound: NotFound, articleT: ArticleT) {
 
   /** Shows an article by its permalink */
   def apply(permalink: String): StandardRoute = {
-    val articlesByDate = articles.all.sortBy(_.metadata.published.toEpochDay)
+    val articlesByDate = articleRepository.all.sortBy(_.metadata.published.toEpochDay)
     val result = for {
-      article <- articles.byPermalink.get(permalink)
+      article <- articleRepository.byPermalink.get(permalink)
       currentIndex <- articlesByDate.zipWithIndex.find(_._1 == article).map(_._2)
     } yield {
       val previous = Try(articlesByDate(currentIndex - 1)).toOption

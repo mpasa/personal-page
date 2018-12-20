@@ -1,12 +1,13 @@
-package me.mpasa.application.controllers.articles
+package me.mpasa.infrastructure
 
 import me.mpasa.application.service.ArticleParserService
 import me.mpasa.domain.model.Article
+import me.mpasa.domain.repository.ArticleRepository
 
 import scala.io.Source
 import scala.util.Try
 
-class Articles(articleParserService: ArticleParserService) {
+class ArticleRepositoryResources(articleParserService: ArticleParserService) extends ArticleRepository {
 
   /** List of all the articles */
   lazy val all: Seq[Article] = {
@@ -17,9 +18,4 @@ class Articles(articleParserService: ArticleParserService) {
     files.flatMap(articleParserService.parse).toSeq
   }
 
-  /** A sequence of all the tags in the articles */
-  lazy val allTags = all.flatMap(_.metadata.tags).distinct
-
-  /** A map of articles by permalink */
-  lazy val byPermalink = all.map(article => article.metadata.permalink -> article).toMap
 }

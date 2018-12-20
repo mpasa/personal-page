@@ -1,7 +1,7 @@
-package me.mpasa.templates
+package me.mpasa.interface
 
 import me.mpasa.ReverseRouter
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.interface.components.LayoutOptions
 import scalatags.Text.TypedTag
 import scalatags.Text.all._
 

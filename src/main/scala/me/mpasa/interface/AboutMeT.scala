@@ -1,7 +1,7 @@
-package me.mpasa.templates
+package me.mpasa.interface
 
 import me.mpasa.application.service.MarkdownService
-import me.mpasa.templates.components.LayoutOptions
+import me.mpasa.interface.components.LayoutOptions
 import org.commonmark.node.Node
 import scalatags.Text.TypedTag
 import scalatags.Text.all._

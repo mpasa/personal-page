@@ -1,4 +1,4 @@
-package me.mpasa.templates.components
+package me.mpasa.interface.components
 
 import me.mpasa.ReverseRouter
 import scalatags.Text.TypedTag

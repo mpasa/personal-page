@@ -3,9 +3,8 @@ package me.mpasa
 import akka.http.scaladsl.model.{HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
-import me.mpasa.application.controllers.articles.{Archives, ShowArticle}
-import me.mpasa.application.controllers.{AboutMe, Resume, Rss, SiteMap}
-import me.mpasa.templates.HomeT
+import me.mpasa.application.controllers._
+import me.mpasa.interface.HomeT
 
 class Router(homeT: HomeT, rss: Rss, archives: Archives, showArticle: ShowArticle, aboutMe: AboutMe, siteMap: SiteMap, resume: Resume) {
 
