@@ -15,8 +15,14 @@ lazy val projectSettings = Seq(
 )
 
 val COMMONMARK_VERSION = "0.11.0"
+val MACWIRE_VERSION = "2.3.1"
 
 lazy val projectDependencies = Seq(
+  // Dependency injection
+  "com.softwaremill.macwire" %% "macros" % MACWIRE_VERSION % "provided",
+  "com.softwaremill.macwire" %% "macrosakka" % MACWIRE_VERSION % "provided",
+  "com.softwaremill.macwire" %% "util" % MACWIRE_VERSION,
+  "com.softwaremill.macwire" %% "proxy" % MACWIRE_VERSION,
   // Server
   "com.typesafe.akka"        %% "akka-http"                         % "10.1.5",
   "com.typesafe.akka"        %% "akka-stream"                       % "2.5.17",
