@@ -1,4 +1,4 @@
-package me.mpasa.controllers.articles
+package me.mpasa.application.controllers.articles
 
 import java.time.LocalDate
 

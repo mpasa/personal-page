@@ -1,14 +1,15 @@
-package me.mpasa.controllers
+package me.mpasa.application.controllers
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
+import me.mpasa.application.service.MarkdownService
 import me.mpasa.templates.AboutMeT
 import me.mpasa.templates.components.LayoutOptions
 import org.commonmark.node.Node
 
 import scala.io.Source
 
-class AboutMe(markdown: Markdown, aboutMeT: AboutMeT) {
+class AboutMe(markdown: MarkdownService, aboutMeT: AboutMeT) {
 
   /** Shows an "about me" page */
   def apply: StandardRoute = {

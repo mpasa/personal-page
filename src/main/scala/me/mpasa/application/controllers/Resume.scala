@@ -1,4 +1,4 @@
-package me.mpasa.controllers
+package me.mpasa.application.controllers
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok

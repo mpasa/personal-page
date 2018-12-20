@@ -1,7 +1,7 @@
 package me.mpasa.templates
 
 import me.mpasa.ReverseRouter
-import me.mpasa.controllers.articles.Articles
+import me.mpasa.application.controllers.articles.Articles
 import me.mpasa.templates.components.LayoutOptions
 import mouse.boolean.booleanSyntaxMouse
 import scalatags.Text.TypedTag

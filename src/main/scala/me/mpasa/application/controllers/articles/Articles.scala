@@ -1,11 +1,12 @@
-package me.mpasa.controllers.articles
+package me.mpasa.application.controllers.articles
 
-import me.mpasa.controllers.Markdown
+import me.mpasa.application.service.ArticleParserService
+import me.mpasa.domain.model.Article
 
 import scala.io.Source
 import scala.util.Try
 
-class Articles(markdown: Markdown) {
+class Articles(articleParserService: ArticleParserService) {
 
   /** List of all the articles */
   lazy val all: Seq[Article] = {
@@ -13,7 +14,7 @@ class Articles(markdown: Markdown) {
     val files = resources.map { resource =>
       Try(Source.fromResource("articles/" + resource).mkString).toOption
     }.flatten
-    files.flatMap(Article.parse(markdown)).toSeq
+    files.flatMap(articleParserService.parse).toSeq
   }
 
   /** A sequence of all the tags in the articles */

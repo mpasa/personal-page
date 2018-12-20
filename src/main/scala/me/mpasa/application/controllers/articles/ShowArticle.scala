@@ -1,8 +1,8 @@
-package me.mpasa.controllers.articles
+package me.mpasa.application.controllers.articles
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import me.mpasa.controllers.NotFound
+import me.mpasa.application.controllers.NotFound
 import me.mpasa.templates.ArticleT
 import me.mpasa.templates.components.LayoutOptions
 

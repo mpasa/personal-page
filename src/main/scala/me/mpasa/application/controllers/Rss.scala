@@ -1,4 +1,4 @@
-package me.mpasa.controllers
+package me.mpasa.application.controllers
 
 import java.time.ZoneOffset.UTC
 import java.time.format.DateTimeFormatter
@@ -7,7 +7,8 @@ import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.ReverseRouter
-import me.mpasa.controllers.articles.{Article, Articles}
+import me.mpasa.application.controllers.articles.Articles
+import me.mpasa.domain.model.Article
 import scalatags.Text.all._
 import scalatags.Text.tags2.title
 import scalatags.text.Frag

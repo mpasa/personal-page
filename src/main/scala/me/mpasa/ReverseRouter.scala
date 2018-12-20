@@ -1,6 +1,6 @@
 package me.mpasa
 
-import me.mpasa.controllers.articles.Article
+import me.mpasa.domain.model.Article
 
 class ReverseRouter {
   // About me
