@@ -3,6 +3,8 @@
 
 # Scala
 target
+.bloop
+.metals
 
 # Generated assets
 node_modules
