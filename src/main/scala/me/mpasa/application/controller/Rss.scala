@@ -1,4 +1,4 @@
-package me.mpasa.application.controllers
+package me.mpasa.application.controller
 
 import java.time.ZoneOffset.UTC
 import java.time.format.DateTimeFormatter
@@ -7,12 +7,12 @@ import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.ReverseRouter
-import me.mpasa.domain.model.Article
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.{Article, ArticleRepository}
 import scalatags.Text.all._
 import scalatags.Text.tags2.title
 import scalatags.text.Frag
 
+/** Controller to generate a RSS feed */
 class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articleRepository: ArticleRepository) {
 
   private val rss = tag("rss")

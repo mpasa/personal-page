@@ -1,10 +1,10 @@
-package me.mpasa.application.controllers
+package me.mpasa.application.controller
 
 import java.net.URLDecoder
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.ArticleRepository
 import me.mpasa.interface.ArchivesT
 import me.mpasa.interface.components.LayoutOptions
 
@@ -36,7 +36,7 @@ class Archives(notFound: NotFound, archivesT: ArchivesT, articlesRepository: Art
       val articles = articlesRepository.all.filter(_.metadata.tags.contains(nameDecoded))
       Ok(archivesT.tag(options, nameDecoded, articles))
     } else {
-      notFound.apply
+      notFound()
     }
   }
 }

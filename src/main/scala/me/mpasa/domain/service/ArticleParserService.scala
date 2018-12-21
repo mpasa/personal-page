@@ -1,4 +1,4 @@
-package me.mpasa.application.service
+package me.mpasa.domain.service
 
 import me.mpasa.domain.model.{Article, ArticleMetadata}
 

@@ -2,7 +2,9 @@ package me.mpasa
 
 import me.mpasa.domain.model.Article
 
+/** Generates routes (URLs) from functions */
 class ReverseRouter {
+
   // About me
   val about = "/about-me"
   val resume = "/resume"
@@ -15,4 +17,5 @@ class ReverseRouter {
   def tag(name: String): String = s"/archives/tags/$name"
   // Feed
   val feed = "/feed.xml"
+
 }

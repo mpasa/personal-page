@@ -3,10 +3,8 @@ package me.mpasa
 import akka.http.scaladsl.model.{HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
-import me.mpasa.application.controllers._
-import me.mpasa.interface.HomeT
 
-class Router(homeT: HomeT, rss: Rss, archives: Archives, showArticle: ShowArticle, aboutMe: AboutMe, siteMap: SiteMap, resume: Resume) {
+class Router(modules: Modules) {
 
   private val handler = ExceptionHandler {
     case e =>
@@ -16,18 +14,18 @@ class Router(homeT: HomeT, rss: Rss, archives: Archives, showArticle: ShowArticl
 
   private val routesList = List(
     // Homepage
-    path("")(get(Ok(homeT.apply))),
+    path("")(get(Ok(modules.homeT.apply))),
     // Articles
-    path("feed.xml")(get(rss.apply)),
-    path("archives")(get(archives.all)),
-    path("archives" / "tags")(get(archives.tags)),
-    path("archives" / "tags" / Remaining) { tag => get(archives.tag(tag)) },
-    path("articles" / Remaining) { permalink => get(showArticle(permalink)) },
+    path("feed.xml")(get(modules.rss.apply)),
+    path("archives")(get(modules.archives.all)),
+    path("archives" / "tags")(get(modules.archives.tags)),
+    path("archives" / "tags" / Remaining) { tag => get(modules.archives.tag(tag)) },
+    path("articles" / Remaining) { permalink => get(modules.showArticle(permalink)) },
     // About me
-    path("about-me")(get(aboutMe.apply)),
-    path("resume")(get(resume.apply)),
+    path("about-me")(get(modules.aboutMe.apply)),
+    path("resume")(get(modules.resume.apply)),
     // Sitemap
-    path("sitemap.xml")(get(siteMap.apply)),
+    path("sitemap.xml")(get(modules.sitemap.apply)),
     // Assets
     pathPrefix("assets")(getFromResourceDirectory("public"))
   )

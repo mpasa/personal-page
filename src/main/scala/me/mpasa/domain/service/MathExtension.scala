@@ -1,4 +1,4 @@
-package me.mpasa.application.controllers
+package me.mpasa.domain.service
 
 import org.commonmark.node.Text
 import org.commonmark.parser.Parser

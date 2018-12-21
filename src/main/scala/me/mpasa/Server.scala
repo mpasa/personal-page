@@ -4,9 +4,9 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import com.softwaremill.macwire._
-import me.mpasa.application.controllers._
-import me.mpasa.application.service.{ArticleParserService, MarkdownService}
-import me.mpasa.infrastructure.ArticleRepositoryResources
+import me.mpasa.application.controller._
+import me.mpasa.domain.service.{ArticleParserService, MarkdownService}
+import me.mpasa.infrastructure.persistence.resources.ArticleRepositoryResources
 import me.mpasa.interface._
 import me.mpasa.interface.components.{FooterT, HeaderT, LayoutT, SocialT}
 
@@ -14,8 +14,7 @@ import scala.concurrent.ExecutionContextExecutor
 import scala.util.{Success, Try}
 
 trait Modules {
-  // Routing
-  lazy val router = wire[Router]
+  // Reverse router
   lazy val reverseRouter = wire[ReverseRouter]
   // Services
   lazy val articleParserService = wire[ArticleParserService]
@@ -45,7 +44,11 @@ trait Modules {
   lazy val resumeT = wire[ResumeT]
 }
 
-object Server extends Modules {
+trait RouterModule extends Modules {
+  lazy val router = new Router(this)
+}
+
+object Server extends RouterModule {
 
   implicit val system: ActorSystem = ActorSystem("my-system")
   implicit val materializer: ActorMaterializer = ActorMaterializer()

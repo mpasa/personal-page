@@ -1,8 +1,7 @@
-package me.mpasa.infrastructure
+package me.mpasa.infrastructure.persistence.resources
 
-import me.mpasa.application.service.ArticleParserService
-import me.mpasa.domain.model.Article
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.{Article, ArticleRepository}
+import me.mpasa.domain.service.ArticleParserService
 
 import scala.io.Source
 import scala.util.Try

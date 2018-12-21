@@ -1,6 +1,4 @@
-package me.mpasa.domain.repository
-
-import me.mpasa.domain.model.Article
+package me.mpasa.domain.model
 
 trait ArticleRepository {
 

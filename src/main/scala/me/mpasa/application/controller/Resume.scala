@@ -1,4 +1,4 @@
-package me.mpasa.application.controllers
+package me.mpasa.application.controller
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
@@ -8,7 +8,7 @@ import me.mpasa.interface.components.LayoutOptions
 
 class Resume(resumeT: ResumeT) {
 
-  /** Shows an "about me" page */
+  /** Shows a page with my resume */
   def apply: StandardRoute = {
     val template = new CleanTemplate(onePage = false)
     val options = LayoutOptions("Resume", extraHead = template.styles)

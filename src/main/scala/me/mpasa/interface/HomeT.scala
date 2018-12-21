@@ -1,7 +1,7 @@
 package me.mpasa.interface
 
 import me.mpasa.ReverseRouter
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.ArticleRepository
 import me.mpasa.interface.components.LayoutOptions
 import mouse.boolean.booleanSyntaxMouse
 import scalatags.Text.TypedTag

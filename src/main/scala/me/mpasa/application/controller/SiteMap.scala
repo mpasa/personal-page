@@ -1,10 +1,10 @@
-package me.mpasa.application.controllers
+package me.mpasa.application.controller
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import akka.http.scaladsl.server.Directives.complete
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.ReverseRouter
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.ArticleRepository
 import scalatags.Text
 import scalatags.Text.all._
 

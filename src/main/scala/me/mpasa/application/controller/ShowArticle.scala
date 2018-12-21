@@ -1,9 +1,8 @@
-package me.mpasa.application.controllers
+package me.mpasa.application.controller
 
 import akka.http.scaladsl.server.StandardRoute
 import me.mpasa.Ok
-import me.mpasa.domain.model.ShownArticle
-import me.mpasa.domain.repository.ArticleRepository
+import me.mpasa.domain.model.{ArticleRepository, ShownArticle}
 import me.mpasa.interface.ArticleT
 import me.mpasa.interface.components.LayoutOptions
 
@@ -24,6 +23,6 @@ class ShowArticle(articleRepository: ArticleRepository, notFound: NotFound, arti
       val options = LayoutOptions(article.metadata.title, description = article.metadata.description, css = Seq("articles"))
       Ok(articleT(options, shownArticle))
     }
-    result.getOrElse(notFound.apply)
+    result.getOrElse(notFound())
   }
 }

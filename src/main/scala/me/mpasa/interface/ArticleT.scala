@@ -4,7 +4,7 @@ import java.time.format.{DateTimeFormatterBuilder, TextStyle}
 import java.time.temporal.ChronoField
 
 import me.mpasa.ReverseRouter
-import me.mpasa.application.controllers.SiteMap
+import me.mpasa.application.controller.SiteMap
 import me.mpasa.domain.model.{Article, ShownArticle}
 import me.mpasa.interface.components.{Icon, LayoutOptions}
 import scalatags.Text.TypedTag
