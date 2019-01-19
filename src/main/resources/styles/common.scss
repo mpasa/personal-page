@@ -1,0 +1,125 @@
+@import "aux";
+@import "notFound";
+@import "components/social";
+
+/* Common styiles for all the pages */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: $font, sans-serif;
+  color: #494949;
+  font-size: 18px;
+  line-height: 1.58;
+  letter-spacing: -.003em;
+}
+
+// Titles
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+// Buttons
+.button {
+  font-family: $titleFont;
+}
+
+// A wrapper for content
+// It limits the max width so it's easier to read
+.wrapper {
+  max-width: $static-width;
+  margin: auto;
+}
+
+// Links
+a {
+  color: $brand-color;
+  text-decoration: none;
+  &:visited {
+    color: $brand-color;
+  }
+}
+
+// Div containing header, content and footer
+// The weird flex things are used to keep the footer always on the bottom of the page
+// https://dev.to/domysee/keeping-the-footer-at-the-bottom-with-css-flexbox-5h5f
+.main {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+header, .contentWrapper, footer {
+  flex-shrink: 0;
+}
+
+.contentWrapper {
+  flex-grow: 1;
+  @include mobile {
+    margin: auto 0.5em;
+  }
+}
+
+// Header
+header {
+  font-family: $titleFont;
+  background-color: black;
+  padding: 2em;
+  background-image: url(/assets/images/header.jpg);
+  background-size: cover;
+
+  .title a, .description {
+    color: rgba(white, 0.9) !important;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .description {
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  .menu {
+    margin-top: 1em;
+  }
+
+  .nav {
+    @include mobile {
+      text-align: center;
+      margin: 1em;
+    }
+  }
+
+  .nav .button {
+    padding: 0.5em;
+    background-color: white;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 0.9em;
+    transition: all .2s ease-in-out;
+    margin: 0 0.2em;
+    &:hover {
+      transform: rotate(5deg);
+    }
+  }
+}
+
+// Footer
+footer {
+  text-align: center;
+  padding: 2em;
+  font-size: 0.7em;
+
+  .heart {
+    color: #fa804c;
+  }
+}

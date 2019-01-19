@@ -7,7 +7,6 @@ module.exports = {
         path: __dirname + '/src/main/resources/public/scripts'
     },
     mode: 'production',
-    watch: true,
     module: {
         rules: [
             {

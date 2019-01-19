@@ -5,6 +5,7 @@ import me.mpasa.Ok
 import me.mpasa.domain.model.{ArticleRepository, ShownArticle}
 import me.mpasa.interface.ArticleT
 import me.mpasa.interface.components.LayoutOptions
+import scalatags.Text.all._
 
 import scala.util.Try
 
@@ -20,7 +21,12 @@ class ShowArticle(articleRepository: ArticleRepository, notFound: NotFound, arti
       val previous = Try(articlesByDate(currentIndex - 1)).toOption
       val next = Try(articlesByDate(currentIndex + 1)).toOption
       val shownArticle = ShownArticle(article, previous, next)
-      val options = LayoutOptions(article.metadata.title, description = article.metadata.description, css = Seq("articles"))
+      val options = LayoutOptions(
+        title = article.metadata.title, 
+        description = article.metadata.description, 
+        css = Seq("articles"),
+        extraHead = Seq(script(src := "/assets/scripts/article.js"))
+      )
       Ok(articleT(options, shownArticle))
     }
     result.getOrElse(notFound())

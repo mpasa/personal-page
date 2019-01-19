@@ -68,8 +68,7 @@ class LayoutT {
       options.description.map(description => meta(name := "description", content := description)),
       options.extraHead,
       analytics,
-      cookiesConsent,
-      script(src := "/assets/scripts/article.js")
+      cookiesConsent
     ),
     body(
       pageContent,
