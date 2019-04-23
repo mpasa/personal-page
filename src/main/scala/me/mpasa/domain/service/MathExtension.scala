@@ -13,12 +13,12 @@ class MathDelimiterProcessor extends DelimiterProcessor {
   override def getDelimiterUse(opener: DelimiterRun, closer: DelimiterRun): Int = {
     opener.length match {
       case x if x > 3 => 0
-      case _ => 2
+      case _          => 2
     }
   }
   override def process(opener: Text, closer: Text, delimiterUse: Int): Unit = {
-    opener.insertAfter(new Text("$"*delimiterUse))
-    closer.insertAfter(new Text("$"*delimiterUse))
+    opener.insertAfter(new Text("$" * delimiterUse))
+    closer.insertAfter(new Text("$" * delimiterUse))
   }
 }
 

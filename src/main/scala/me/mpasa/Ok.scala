@@ -14,6 +14,7 @@ object Ok {
     complete((status, response))
   }
 
-  def apply(status: StatusCode, content: TypedTag[String]): StandardRoute = apply(status, "<!DOCTYPE html>" + content.render)
+  def apply(status: StatusCode, content: TypedTag[String]): StandardRoute =
+    apply(status, "<!DOCTYPE html>" + content.render)
   def apply(content: TypedTag[String]): StandardRoute = apply(StatusCodes.OK, content)
 }

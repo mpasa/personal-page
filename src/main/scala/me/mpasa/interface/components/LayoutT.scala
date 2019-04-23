@@ -25,8 +25,7 @@ class LayoutT {
   private val cookiesConsent = Seq(
     link(rel := "stylesheet", href := "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"),
     script(src := "//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"),
-    script(raw(
-      """
+    script(raw("""
         |window.addEventListener("load", function(){
         |  window.cookieconsent.initialise({
         |    "palette": {
@@ -72,15 +71,17 @@ class LayoutT {
     ),
     body(
       pageContent,
-      script(raw(
-        """
+      script(
+        raw(
+          """
           |hljs.initHighlightingOnLoad();
           |renderMathInElement(document.body, { delimiters: [
           | { left: "$$$", right: "$$$", display: true},
           | { left: "$$", right: "$$", display: false},
           |]});
         """.stripMargin
-      ))
+        )
+      )
     )
   )
 }

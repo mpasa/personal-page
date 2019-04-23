@@ -25,7 +25,7 @@ class ArticleT(layout: PageT, reverseRouter: ReverseRouter, siteMap: SiteMap) {
   private def showMetadata(article: Article) = div(cls := "metadata")(
     span(cls := "publishedDate")(
       Icon.CALENDAR,
-      article.metadata.published.format(DATE_FORMATTER),
+      article.metadata.published.format(DATE_FORMATTER)
     ),
     div(cls := "tags")(
       article.metadata.tags.toSeq.map { tag =>

@@ -19,7 +19,7 @@ class HeaderT(router: ReverseRouter, socialT: SocialT) {
       div(cls := "menu flex spaceBetween")(
         div(cls := "nav")(
           a(cls := "button", href := router.about, "About me"),
-          a(cls := "button", href := router.resume, "Resume"),
+          a(cls := "button", href := router.resume, "Resume")
         ),
         socialT.socialButtons
       )

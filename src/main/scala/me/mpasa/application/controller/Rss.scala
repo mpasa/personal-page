@@ -21,7 +21,7 @@ class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articleRepository: Art
   private val link = tag("link")
   private val guid = tag("guid")
   private val description = tag("description")
-  private val pubDate= tag("pubDate")
+  private val pubDate = tag("pubDate")
   private val item = tag("item")
 
   private case class CData(data: RawFrag) extends Frag {

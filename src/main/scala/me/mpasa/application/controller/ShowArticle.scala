@@ -22,8 +22,8 @@ class ShowArticle(articleRepository: ArticleRepository, notFound: NotFound, arti
       val next = Try(articlesByDate(currentIndex + 1)).toOption
       val shownArticle = ShownArticle(article, previous, next)
       val options = LayoutOptions(
-        title = article.metadata.title, 
-        description = article.metadata.description, 
+        title = article.metadata.title,
+        description = article.metadata.description,
         css = Seq("articles"),
         extraHead = Seq(script(src := "/assets/scripts/article.js"))
       )

@@ -17,4 +17,3 @@ class PageT(layout: LayoutT, headerT: HeaderT, footerT: FooterT) {
     )
   }
 }
-

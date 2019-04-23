@@ -24,15 +24,15 @@ class SiteMap(reverseRouter: ReverseRouter, articleRepository: ArticleRepository
 
   // Sequence of all URLs relative to the domain
   private val urls: Seq[String] = {
-    Seq("") ++                                    // Homepage
-    Seq(reverseRouter.about) ++                  // About me
-    Seq(reverseRouter.resume) ++                 // Resume
-    // Blog
-    articleRepository.all.map(reverseRouter.article) ++   // Articles
-    Seq(reverseRouter.archives) ++               // Archives
-    Seq(reverseRouter.tags) ++                   // List of tags
-    articleRepository.allTags.map(reverseRouter.tag) ++   // Tags
-    Seq(reverseRouter.feed)                      // Feed
+    Seq("") ++ // Homepage
+      Seq(reverseRouter.about) ++ // About me
+      Seq(reverseRouter.resume) ++ // Resume
+      // Blog
+      articleRepository.all.map(reverseRouter.article) ++ // Articles
+      Seq(reverseRouter.archives) ++ // Archives
+      Seq(reverseRouter.tags) ++ // List of tags
+      articleRepository.allTags.map(reverseRouter.tag) ++ // Tags
+      Seq(reverseRouter.feed) // Feed
   }
 
   /** Returns a sitemap given a list of all the urls */

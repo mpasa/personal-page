@@ -9,7 +9,10 @@ class FooterT {
   def apply: TypedTag[String] = footer(cls := "wrapper") {
     val projectPage = "https://github.com/mpasa/personal-page"
     span(
-      "Site built using ", a(href := projectPage, "Scala"), " with ", span(cls := "heart fas fa-heart")
+      "Site built using ",
+      a(href := projectPage, "Scala"),
+      " with ",
+      span(cls := "heart fas fa-heart")
     )
   }
 }

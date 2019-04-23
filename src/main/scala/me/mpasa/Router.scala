@@ -19,8 +19,12 @@ class Router(modules: Modules) {
     path("feed.xml")(get(modules.rss.apply)),
     path("archives")(get(modules.archives.all)),
     path("archives" / "tags")(get(modules.archives.tags)),
-    path("archives" / "tags" / Remaining) { tag => get(modules.archives.tag(tag)) },
-    path("articles" / Remaining) { permalink => get(modules.showArticle(permalink)) },
+    path("archives" / "tags" / Remaining) { tag =>
+      get(modules.archives.tag(tag))
+    },
+    path("articles" / Remaining) { permalink =>
+      get(modules.showArticle(permalink))
+    },
     // About me
     path("about-me")(get(modules.aboutMe.apply)),
     path("resume")(get(modules.resume.apply)),

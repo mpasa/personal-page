@@ -13,10 +13,9 @@ class NotFoundT(layout: PageT, reverseRouter: ReverseRouter) {
       h1("404"),
       p(
         "This page doesn't exist. This is bad, but not that bad! You can still find all my articles ",
-        a(href := reverseRouter.archives, "here"), "."
+        a(href := reverseRouter.archives, "here"),
+        "."
       )
     )
   }
 }
-
-

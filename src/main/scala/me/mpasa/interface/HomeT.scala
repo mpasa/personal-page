@@ -24,8 +24,11 @@ class HomeT(layout: PageT, reverseRouter: ReverseRouter, articleRepository: Arti
             }
           ),
           p(
-            "You can find all of them in the ", a(href := reverseRouter.archives, "archives"), " or grouped by ",
-            a(href := reverseRouter.tags, "tag"), "."
+            "You can find all of them in the ",
+            a(href := reverseRouter.archives, "archives"),
+            " or grouped by ",
+            a(href := reverseRouter.tags, "tag"),
+            "."
           )
         )
       }

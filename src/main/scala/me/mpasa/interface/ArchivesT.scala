@@ -15,7 +15,9 @@ class ArchivesT(layout: PageT, reverseRouter: ReverseRouter) {
       h1("Archives"),
       p(
         "Here you can find all the articles I've written, sorted by date in descending order. ",
-        "You can also check out a list of them grouped by ", a(href := reverseRouter.tags, "tag"), "."
+        "You can also check out a list of them grouped by ",
+        a(href := reverseRouter.tags, "tag"),
+        "."
       ),
       ul(
         articles.sortBy(_.metadata.published)(Ordering.by(-_.toEpochDay)).map { article =>
@@ -36,7 +38,9 @@ class ArchivesT(layout: PageT, reverseRouter: ReverseRouter) {
       h1("Tags"),
       p(
         "Here you can find all the tags I've written about, sorted alphanumerically in ascending order. ",
-        "You can also check out a list of ", a(href := reverseRouter.archives, "all the posts"), "."
+        "You can also check out a list of ",
+        a(href := reverseRouter.archives, "all the posts"),
+        "."
       ),
       ul(
         tags.sorted.map { tag =>

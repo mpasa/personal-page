@@ -4,6 +4,7 @@ import me.mpasa.ReverseRouter
 import scalatags.Text.all._
 
 class SocialT(reverseRouter: ReverseRouter) {
+
   /** A fancy way of getting icons */
   private def icon(iconClass: String) = span(cls := s"icon $iconClass")
 
