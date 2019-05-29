@@ -4,6 +4,9 @@ lazy val root = (project in file("."))
   .settings(libraryDependencies ++= projectDependencies)
   .settings(scalacOptions ++= advanceScalacOptions)
   .enablePlugins(JavaAppPackaging)
+  .enablePlugins(DockerPlugin)
+  .enablePlugins(AshScriptPlugin)
+  .settings(dockerBaseImage := "openjdk:jre-alpine")
 
 lazy val resume = RootProject(uri("https://github.com/mpasa/resume.git#master"))
 

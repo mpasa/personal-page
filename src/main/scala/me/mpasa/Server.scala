@@ -11,7 +11,6 @@ import me.mpasa.interface._
 import me.mpasa.interface.components.{FooterT, HeaderT, LayoutT, SocialT}
 
 import scala.concurrent.ExecutionContextExecutor
-import scala.util.{Success, Try}
 
 trait Modules {
   // Reverse router
@@ -55,13 +54,9 @@ object Server extends RouterModule {
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
   def main(args: Array[String]): Unit = {
-    Try(args(0).toInt) match {
-      case Success(port) =>
-        val host: String = "localhost"
-        Http().bindAndHandle(router.routes, host, port)
-        println(s"Server online at $host ($port)")
-      case _ =>
-        println("You must specify the port as the first argument of the app")
-    }
+    val host: String = "0.0.0.0"
+    val port: Int = 8000
+    Http().bindAndHandle(router.routes, host, port)
+    println(s"Server online at $host ($port)")
   }
 }
