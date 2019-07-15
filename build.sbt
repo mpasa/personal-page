@@ -1,5 +1,4 @@
 lazy val root = (project in file("."))
-  .dependsOn(resume)
   .settings(projectSettings: _*)
   .settings(libraryDependencies ++= projectDependencies)
   .settings(scalacOptions ++= advanceScalacOptions)
@@ -7,8 +6,6 @@ lazy val root = (project in file("."))
   .enablePlugins(DockerPlugin)
   .enablePlugins(AshScriptPlugin)
   .settings(dockerBaseImage := "openjdk:jre-alpine")
-
-lazy val resume = RootProject(uri("https://github.com/mpasa/resume.git#master"))
 
 lazy val projectSettings = Seq(
   name := "mpasa",
@@ -21,6 +18,8 @@ val COMMONMARK_VERSION = "0.11.0"
 val MACWIRE_VERSION = "2.3.1"
 
 lazy val projectDependencies = Seq(
+  // Resume
+  "me.mpasa" %% "resume" % "0.1-SNAPSHOT",
   // Dependency injection
   "com.softwaremill.macwire" %% "macros" % MACWIRE_VERSION % "provided",
   "com.softwaremill.macwire" %% "macrosakka" % MACWIRE_VERSION % "provided",
