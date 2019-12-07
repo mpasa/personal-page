@@ -8,4 +8,4 @@ sass --style compressed src/main/resources/styles:src/main/resources/public/styl
 sbt clean docker:publishLocal
 docker save -o "target/docker/mpasa.tar" "mpasa:0.1.0"
 
-echo "Done, you can copy and load docker image to production: ./target/docker/mpasa.tar using docker load -i mpasa.tar" 
+echo "Done. You can restart the docker container with the new image" 
