@@ -2,10 +2,10 @@
     "name": "me.mpasa",
     "version": "1.0.0",
     "dependencies": {
-        "anchor-js": "^4.1.1"
+        "anchor-js": "^4.2.2"
     },
     "devDependencies": {
-        "webpack": "^4.41.2",
+        "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
     }
 }
