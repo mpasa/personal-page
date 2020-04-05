@@ -1,10 +1,7 @@
-
-/* Auxiliary styles, useful for all the pages */
-
 // Mobile
 $static-width: 940px;
 @mixin mobile {
-  @media only screen and (max-width: static-width) {
+  @media only screen and (max-width: $static-width) {
     @content;
   }
 }
