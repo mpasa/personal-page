@@ -1,3 +1,5 @@
+@import "scheme";
+
 // Mobile
 $static-width: 940px;
 @mixin mobile {
@@ -7,8 +9,8 @@ $static-width: 940px;
 }
 
 // Colors
-$brand-color: #005995;
-$font: 'Noto Sans';
+$brand-color: darken($scheme_base0D, 35);
+$font: 'Noto Mono';
 $titleFont: 'Raleway';
 
 // Content

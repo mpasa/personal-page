@@ -5,8 +5,8 @@
 .article {
   margin: auto;
   text-align: justify;
-  font-size: 19px;
-  color: rgb(81, 81, 81);
+  font-size: 20px;
+  color: $scheme_base03;
 
   // Title
   h1 {
@@ -21,7 +21,7 @@
     }
 
     .publishedDate .icon {
-      color: gray;
+      color: $scheme_base04;
       margin-right: 0.5em;
       color: $brand-color;
     }
