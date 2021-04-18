@@ -2,7 +2,6 @@ package me.mpasa
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.stream.ActorMaterializer
 import com.softwaremill.macwire._
 import me.mpasa.application.controller._
 import me.mpasa.domain.service.{ArticleParserService, MarkdownService}
@@ -50,13 +49,12 @@ trait RouterModule extends Modules {
 object Server extends RouterModule {
 
   implicit val system: ActorSystem = ActorSystem("my-system")
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
   def main(args: Array[String]): Unit = {
     val host: String = "0.0.0.0"
     val port: Int = 8000
-    Http().bindAndHandle(router.routes, host, port)
+    Http().newServerAt(host, port).bind(router.routes)
     println(s"Server online at $host ($port)")
   }
 }

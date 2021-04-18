@@ -5,7 +5,7 @@ import org.commonmark.ext.gfm.tables.TablesExtension
 import org.commonmark.parser.Parser
 import org.commonmark.renderer.html.HtmlRenderer
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 /** Utils for markdown rendering and rendering */
 class MarkdownService {

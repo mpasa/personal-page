@@ -26,7 +26,7 @@ class Rss(siteMap: SiteMap, reverseRouter: ReverseRouter, articleRepository: Art
 
   private case class CData(data: RawFrag) extends Frag {
     override def render: String = "<![CDATA[" + data.render + "]]>"
-    override def writeTo(strb: StringBuilder): Unit = strb ++= render
+    override def writeTo(writer: java.io.Writer): Unit = writer.write(render)
   }
 
   private val rfc2822 = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm:ss Z")

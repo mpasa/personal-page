@@ -5,7 +5,7 @@ import java.time.LocalDate
 import org.commonmark.ext.front.matter.YamlFrontMatterVisitor
 import org.commonmark.node.Node
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 import scala.util.Try
 
 /** Metadata for an article
@@ -30,7 +30,7 @@ object ArticleMetadata {
   private def metadataMap(document: Node): Map[String, Seq[String]] = {
     val visitor = new YamlFrontMatterVisitor
     document.accept(visitor)
-    visitor.getData.asScala.toMap.map { case (k, v) => k -> v.asScala }
+    visitor.getData.asScala.toMap.map { case (k, v) => k -> v.asScala.toList }
   }
 
   /** Parses metadata from a markdown node */

@@ -10,7 +10,7 @@ class ArticleRepositoryResources(articleParserService: ArticleParserService) ext
 
   /** List of all the articles */
   lazy val all: Seq[Article] = {
-    val resources = Source.fromResource("articles/Published.txt").getLines
+    val resources = Source.fromResource("articles/Published.txt").getLines()
     val files = resources.map { resource =>
       Try(Source.fromResource("articles/" + resource).mkString).toOption
     }.flatten

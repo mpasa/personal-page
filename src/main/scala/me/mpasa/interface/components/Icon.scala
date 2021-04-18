@@ -10,7 +10,7 @@ import scalatags.text.Frag
   * @param classes extra classes for the icon
   */
 case class Icon(classes: String) extends Frag {
-  override def writeTo(strb: StringBuilder): Unit = strb ++= render
+  override def writeTo(writer: java.io.Writer): Unit = writer.write(render)
   override def render: String = span(cls := "icon " + classes).render
 }
 
