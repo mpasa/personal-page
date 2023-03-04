@@ -9,12 +9,13 @@ class LayoutT {
   /** Analytics tracking code */
   private val analytics = raw(
     """
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121170824-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2GP7M87KL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-121170824-1');
+
+      gtag('config', 'G-B2GP7M87KL');
     </script>
     """
   )
