@@ -29,7 +29,7 @@ lazy val projectDependencies = Seq(
   "com.typesafe.akka" %% "akka-http" % "10.5.3",
   "com.typesafe.akka" %% "akka-stream" % "2.8.5",
   // Templates
-  "com.lihaoyi" %% "scalatags" % "0.12.0",
+  "com.lihaoyi" %% "scalatags" % "0.13.1",
   // Markdown rendering
   "com.atlassian.commonmark" % "commonmark" % COMMONMARK_VERSION,
   "com.atlassian.commonmark" % "commonmark-ext-gfm-tables" % COMMONMARK_VERSION,

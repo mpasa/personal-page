@@ -1,5 +1,5 @@
 [tools]
-java = "latest"
+java = "11"
 node = "latest"
 sbt = "latest"
 yarn = "latest"
