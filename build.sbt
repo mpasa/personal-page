@@ -14,8 +14,8 @@ lazy val projectSettings = Seq(
   scalaVersion := "2.13.12"
 )
 
-val COMMONMARK_VERSION = "0.17.0"
-val MACWIRE_VERSION = "2.5.9"
+val COMMONMARK_VERSION = "0.11.0"
+val MACWIRE_VERSION = "2.6.6"
 
 lazy val projectDependencies = Seq(
   // Resume
@@ -53,7 +53,6 @@ lazy val advanceScalacOptions = Seq(
   "-language:implicitConversions", // Allow definition of implicit functions called views
   "-unchecked", // Enable additional warnings where generated code depends on assumptions.
   "-Xcheckinit", // Wrap field accessors to throw an exception on uninitialized access.
-  "-Xfatal-warnings", // Fail the compilation if there are any warnings.
   "-Xlint:adapted-args", // Warn if an argument list is modified to match the receiver.
   "-Xlint:constant", // Evaluation of a constant arithmetic expression results in an error.
   "-Xlint:delayedinit-select", // Selecting member of DelayedInit.

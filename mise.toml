@@ -1,5 +1,5 @@
 [tools]
-java = "11"
+java = "adoptopenjdk-11.0.20+101"
 node = "latest"
 sbt = "latest"
 yarn = "latest"
