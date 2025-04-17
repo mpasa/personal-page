@@ -1,11 +1,14 @@
 #!/bin/bash
-set -euo pipefail
+set -e
+
+# Install dependencies
+mise install
 
 # Build depdendencies
 yarn install
 node_modules/.bin/webpack
 mkdir -p src/main/resources/public/styles
-sass --style compressed src/main/resources/styles:src/main/resources/public/styles
+./node_modules/sass/sass.js --style compressed src/main/resources/styles:src/main/resources/public/styles
 
 # Build docker image
 sbt clean docker:publishLocal

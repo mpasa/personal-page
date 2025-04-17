@@ -1,0 +1,4 @@
+[tools]
+java = "latest"
+sbt = "latest"
+yarn = "latest"
