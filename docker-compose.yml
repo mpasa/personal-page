@@ -1,5 +1,0 @@
-services:
-  web:
-    image: "mpasa:0.1.0"
-    ports:
-      - "9020:8000"
