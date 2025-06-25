@@ -5,7 +5,7 @@ set -e
 mise install
 
 # Build depdendencies
-yarn install
+bun install
 node_modules/.bin/webpack
 mkdir -p src/main/resources/public/styles
 ./node_modules/sass/sass.js --style compressed src/main/resources/styles:src/main/resources/public/styles
