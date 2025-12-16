@@ -21,10 +21,7 @@ docker tag mpasa:$TAG ghcr.io/mpasa/mpasa:latest
 docker push ghcr.io/mpasa/mpasa:$TAG
 docker push ghcr.io/mpasa/mpasa:latest
 
-# Push image and restart deployment
-microk8s ctr image import target/docker/mpasa.tar --digests=true
-microk8s kubectl -n mpasa set image deployment/mpasa mpasa=mpasa:0.1.0
-microk8s kubectl -n mpasa rollout restart deployment/mpasa
+# Change deployment image
 microk8s kubectl -n mpasa set image deployment/mpasa mpasa=ghcr.io/mpasa/mpasa:$TAG
 
 echo "Done. Deployment is restarting..."
