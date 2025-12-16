@@ -5,7 +5,7 @@ lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .enablePlugins(DockerPlugin)
   .enablePlugins(AshScriptPlugin)
-  .settings(dockerBaseImage := "openjdk:jre-alpine")
+  .settings(dockerBaseImage := "eclipse-temurin:11-jre-alpine")
 
 lazy val projectSettings = Seq(
   name := "mpasa",
