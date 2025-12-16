@@ -11,18 +11,17 @@ lazy val projectSettings = Seq(
   name := "mpasa",
   version := "0.1.0",
   organization := "me.mpasa",
-  scalaVersion := "2.13.12"
+  scalaVersion := "3.7.4"
 )
 
 val COMMONMARK_VERSION = "0.11.0"
-val MACWIRE_VERSION = "2.6.6"
+val MACWIRE_VERSION = "2.6.7"
 
 lazy val projectDependencies = Seq(
   // Resume
   "me.mpasa" %% "resume" % "0.1-SNAPSHOT",
   // Dependency injection
   "com.softwaremill.macwire" %% "macros" % MACWIRE_VERSION % "provided",
-  "com.softwaremill.macwire" %% "macrosakka" % MACWIRE_VERSION % "provided",
   "com.softwaremill.macwire" %% "util" % MACWIRE_VERSION,
   "com.softwaremill.macwire" %% "proxy" % MACWIRE_VERSION,
   // Server
