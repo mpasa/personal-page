@@ -14,7 +14,7 @@ lazy val projectSettings = Seq(
   scalaVersion := "3.7.4"
 )
 
-val COMMONMARK_VERSION = "0.11.0"
+val COMMONMARK_VERSION = "0.17.0"
 val MACWIRE_VERSION = "2.6.7"
 
 lazy val projectDependencies = Seq(
@@ -26,7 +26,7 @@ lazy val projectDependencies = Seq(
   "com.softwaremill.macwire" %% "proxy" % MACWIRE_VERSION,
   // Server
   "com.typesafe.akka" %% "akka-http" % "10.5.3",
-  "com.typesafe.akka" %% "akka-stream" % "2.8.5",
+  "com.typesafe.akka" %% "akka-stream" % "2.8.8",
   // Templates
   "com.lihaoyi" %% "scalatags" % "0.13.1",
   // Markdown rendering
@@ -34,9 +34,9 @@ lazy val projectDependencies = Seq(
   "com.atlassian.commonmark" % "commonmark-ext-gfm-tables" % COMMONMARK_VERSION,
   "com.atlassian.commonmark" % "commonmark-ext-yaml-front-matter" % COMMONMARK_VERSION,
   // Utils
-  "org.typelevel" %% "mouse" % "1.2.2",
+  "org.typelevel" %% "mouse" % "1.4.0",
   // Testing
-  "org.scalatest" %% "scalatest" % "3.2.17" % "test"
+  "org.scalatest" %% "scalatest" % "3.2.20" % "test"
 )
 
 // https://tpolecat.github.io/2017/04/25/scalac-flags.html
