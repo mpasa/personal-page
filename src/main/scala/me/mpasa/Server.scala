@@ -9,7 +9,10 @@ import me.mpasa.infrastructure.persistence.resources.ArticleRepositoryResources
 import me.mpasa.interface._
 import me.mpasa.interface.components.{FooterT, HeaderT, LayoutT, SocialT}
 
+import scala.concurrent.Await
 import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.duration.Duration
+import scala.util.{Failure, Success}
 
 trait Modules {
   // Reverse router
@@ -54,7 +57,16 @@ object Server extends RouterModule {
   def main(args: Array[String]): Unit = {
     val host: String = "0.0.0.0"
     val port: Int = 8000
-    Http().newServerAt(host, port).bind(router.routes)
-    println(s"Server online at $host ($port)")
+    val bindingFuture = Http().newServerAt(host, port).bind(router.routes)
+
+    bindingFuture.onComplete {
+      case Success(_) =>
+        println(s"Server online at $host ($port)")
+      case Failure(exception) =>
+        System.err.println(s"Failed to bind server at $host ($port): ${exception.getMessage}")
+        system.terminate()
+    }
+
+    Await.result(system.whenTerminated, Duration.Inf)
   }
 }
