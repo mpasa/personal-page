@@ -5,13 +5,13 @@ lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .enablePlugins(DockerPlugin)
   .enablePlugins(AshScriptPlugin)
-  .settings(dockerBaseImage := "eclipse-temurin:11-jre-alpine")
+  .settings(dockerBaseImage := "eclipse-temurin:17-jre-alpine")
 
 lazy val projectSettings = Seq(
   name := "mpasa",
   version := "0.1.0",
   organization := "me.mpasa",
-  scalaVersion := "3.7.4"
+  scalaVersion := "3.8.3"
 )
 
 val COMMONMARK_VERSION = "0.17.0"
